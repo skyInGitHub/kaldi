@@ -1,0 +1,20 @@
+# gmm-acc-stats-ali exp/tri3/15.mdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split10/3/utt2spk scp:data/train/split10/3/cmvn.scp scp:data/train/split10/3/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2_ali/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split10/3/utt2spk ark:exp/tri3/trans.3 ark:- ark:- |" "ark,s,cs:gunzip -c exp/tri3/ali.3.gz|" exp/tri3/15.3.acc 
+# Started at Mon Apr 29 15:21:03 AEST 2019
+#
+gmm-acc-stats-ali exp/tri3/15.mdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split10/3/utt2spk scp:data/train/split10/3/cmvn.scp scp:data/train/split10/3/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2_ali/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split10/3/utt2spk ark:exp/tri3/trans.3 ark:- ark:- |' 'ark,s,cs:gunzip -c exp/tri3/ali.3.gz|' exp/tri3/15.3.acc 
+transform-feats exp/tri2_ali/final.mat ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/train/split10/3/utt2spk scp:data/train/split10/3/cmvn.scp scp:data/train/split10/3/feats.scp ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+transform-feats --utt2spk=ark:data/train/split10/3/utt2spk ark:exp/tri3/trans.3 ark:- ark:- 
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:105) Processed 50 utterances; for utterance FMPG0_SI2232 avg. like is -48.8851 over 337 frames.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:105) Processed 100 utterances; for utterance FSAH0_SX164 avg. like is -47.3921 over 291 frames.
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 128 utterances, errors on 0
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -89.2842 over 39861 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 128 utterances; 0 had errors.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average logdet is 2.31465 over 39861 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 128 utterances; 0 had errors.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:112) Done 128 files, 0 with errors.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:115) Overall avg like per frame (Gaussian only) = -46.6171 over 39861 frames.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:123) Written accs.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 15:21:03 AEST 2019, elapsed time 0 seconds

@@ -1,0 +1,90 @@
+# lattice-align-phones exp/tri3/decode_dev.si/../final.mdl "ark:gunzip -c exp/tri3/decode_dev.si/lat.1.gz|" ark:- | lattice-to-ctm-conf --acoustic-scale=.50000000 --lm-scale=1.0 ark:- exp/tri3/decode_dev.si/scoring/2.1.ctm 
+# Started at Mon Apr 29 16:38:56 AEST 2019
+#
+lattice-align-phones exp/tri3/decode_dev.si/../final.mdl 'ark:gunzip -c exp/tri3/decode_dev.si/lat.1.gz|' ark:- 
+lattice-to-ctm-conf --acoustic-scale=.50000000 --lm-scale=1.0 ark:- exp/tri3/decode_dev.si/scoring/2.1.ctm 
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FCAL1_SI1403, Bayes Risk 2.73738, avg. confidence per-word 0.959069
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FCAL1_SI2033, Bayes Risk 1.53449, avg. confidence per-word 0.969889
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FCAL1_SI773, Bayes Risk 0.0880842, avg. confidence per-word 0.998597
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FCAL1_SX143, Bayes Risk 0.720553, avg. confidence per-word 0.986951
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FCAL1_SX233, Bayes Risk 2.12145, avg. confidence per-word 0.944809
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FCAL1_SX323, Bayes Risk 1.77141, avg. confidence per-word 0.955673
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FCAL1_SX413, Bayes Risk 0.832835, avg. confidence per-word 0.985755
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FCAL1_SX53, Bayes Risk 1.63448, avg. confidence per-word 0.968879
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FJEM0_SI1264, Bayes Risk 3.29067, avg. confidence per-word 0.939259
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FJEM0_SI1894, Bayes Risk 1.46865, avg. confidence per-word 0.983519
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FJEM0_SI634, Bayes Risk 3.54051, avg. confidence per-word 0.951057
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FJEM0_SX184, Bayes Risk 1.26933, avg. confidence per-word 0.961331
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FJEM0_SX274, Bayes Risk 1.77791, avg. confidence per-word 0.95262
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FJEM0_SX364, Bayes Risk 5.30462, avg. confidence per-word 0.940091
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FJEM0_SX4, Bayes Risk 0.68857, avg. confidence per-word 0.98071
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FJEM0_SX94, Bayes Risk 0.778341, avg. confidence per-word 0.984349
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMML0_SI1040, Bayes Risk 2.90133, avg. confidence per-word 0.9491
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMML0_SI1670, Bayes Risk 2.5635, avg. confidence per-word 0.948229
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMML0_SI2300, Bayes Risk 1.8016, avg. confidence per-word 0.955002
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMML0_SX140, Bayes Risk 2.10689, avg. confidence per-word 0.959112
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMML0_SX230, Bayes Risk 1.84993, avg. confidence per-word 0.946268
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMML0_SX320, Bayes Risk 4.36825, avg. confidence per-word 0.914606
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMML0_SX410, Bayes Risk 1.38419, avg. confidence per-word 0.966244
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMML0_SX50, Bayes Risk 2.23042, avg. confidence per-word 0.960433
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FNMR0_SI1399, Bayes Risk 2.54062, avg. confidence per-word 0.966503
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FNMR0_SI2029, Bayes Risk 0.833422, avg. confidence per-word 0.971262
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FNMR0_SI769, Bayes Risk 1.38873, avg. confidence per-word 0.958108
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FNMR0_SX139, Bayes Risk 2.04194, avg. confidence per-word 0.958281
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FNMR0_SX229, Bayes Risk 0.532236, avg. confidence per-word 0.978809
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FNMR0_SX319, Bayes Risk 2.8545, avg. confidence per-word 0.935475
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FNMR0_SX409, Bayes Risk 2.15468, avg. confidence per-word 0.963976
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FNMR0_SX49, Bayes Risk 3.82684, avg. confidence per-word 0.933068
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FREW0_SI1030, Bayes Risk 0.515726, avg. confidence per-word 0.978514
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FREW0_SI1280, Bayes Risk 3.07824, avg. confidence per-word 0.950413
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FREW0_SI1910, Bayes Risk 1.89476, avg. confidence per-word 0.957256
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FREW0_SX110, Bayes Risk 3.56059, avg. confidence per-word 0.929317
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FREW0_SX20, Bayes Risk 0.888731, avg. confidence per-word 0.966945
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FREW0_SX200, Bayes Risk 1.89754, avg. confidence per-word 0.96024
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FREW0_SX290, Bayes Risk 2.73821, avg. confidence per-word 0.952705
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FREW0_SX380, Bayes Risk 0.605863, avg. confidence per-word 0.97913
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FSEM0_SI1198, Bayes Risk 0.947372, avg. confidence per-word 0.962205
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FSEM0_SI1828, Bayes Risk 2.22233, avg. confidence per-word 0.972234
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FSEM0_SI568, Bayes Risk 2.13835, avg. confidence per-word 0.959091
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FSEM0_SX118, Bayes Risk 0.568646, avg. confidence per-word 0.985509
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FSEM0_SX208, Bayes Risk 0.974846, avg. confidence per-word 0.976667
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FSEM0_SX28, Bayes Risk 1.26215, avg. confidence per-word 0.969282
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FSEM0_SX298, Bayes Risk 3.32904, avg. confidence per-word 0.928122
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FSEM0_SX388, Bayes Risk 1.46573, avg. confidence per-word 0.974581
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMJR0_SI1648, Bayes Risk 3.0578, avg. confidence per-word 0.960436
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMJR0_SI2166, Bayes Risk 0.580926, avg. confidence per-word 0.982616
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMJR0_SI2278, Bayes Risk 1.05524, avg. confidence per-word 0.977583
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMJR0_SX118, Bayes Risk 1.57479, avg. confidence per-word 0.96147
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMJR0_SX208, Bayes Risk 2.10643, avg. confidence per-word 0.958629
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMJR0_SX28, Bayes Risk 0.938778, avg. confidence per-word 0.983596
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMJR0_SX298, Bayes Risk 1.44604, avg. confidence per-word 0.967652
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMJR0_SX388, Bayes Risk 2.34363, avg. confidence per-word 0.964003
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMWH0_SI1089, Bayes Risk 1.14437, avg. confidence per-word 0.975939
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMWH0_SI1301, Bayes Risk 2.63078, avg. confidence per-word 0.970068
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMWH0_SI459, Bayes Risk 0.825789, avg. confidence per-word 0.989693
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMWH0_SX189, Bayes Risk 1.42791, avg. confidence per-word 0.965144
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMWH0_SX279, Bayes Risk 0.745741, avg. confidence per-word 0.986736
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMWH0_SX369, Bayes Risk 0.311622, avg. confidence per-word 0.99002
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMWH0_SX9, Bayes Risk 0.000472679, avg. confidence per-word 0.999974
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MMWH0_SX99, Bayes Risk 0.661548, avg. confidence per-word 0.981251
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MRCS0_SI1223, Bayes Risk 0.688543, avg. confidence per-word 0.977299
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MRCS0_SI1853, Bayes Risk 2.81383, avg. confidence per-word 0.961712
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MRCS0_SI593, Bayes Risk 0.734131, avg. confidence per-word 0.980783
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MRCS0_SX143, Bayes Risk 0.442166, avg. confidence per-word 0.991508
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MRCS0_SX233, Bayes Risk 1.92677, avg. confidence per-word 0.948211
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MRCS0_SX323, Bayes Risk 2.72503, avg. confidence per-word 0.947178
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MRCS0_SX413, Bayes Risk 0.515587, avg. confidence per-word 0.994096
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MRCS0_SX53, Bayes Risk 0.33046, avg. confidence per-word 0.993567
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MREB0_SI1375, Bayes Risk 2.09023, avg. confidence per-word 0.974068
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MREB0_SI2005, Bayes Risk 2.16656, avg. confidence per-word 0.972374
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MREB0_SI745, Bayes Risk 0.483252, avg. confidence per-word 0.985048
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MREB0_SX115, Bayes Risk 2.07207, avg. confidence per-word 0.950979
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MREB0_SX205, Bayes Risk 0.765428, avg. confidence per-word 0.984407
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MREB0_SX25, Bayes Risk 1.22803, avg. confidence per-word 0.961863
+LOG (lattice-align-phones[5.5.294-06484]:main():lattice-align-phones.cc:104) Successfully aligned 80 lattices; 0 had errors.
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MREB0_SX295, Bayes Risk 0.565179, avg. confidence per-word 0.988395
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MREB0_SX385, Bayes Risk 1.01349, avg. confidence per-word 0.975725
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:184) Done 80 lattices.
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:185) Overall average Bayes Risk per sentence is 1.68049 and per word, 0.0405059
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 16:38:56 AEST 2019, elapsed time 0 seconds

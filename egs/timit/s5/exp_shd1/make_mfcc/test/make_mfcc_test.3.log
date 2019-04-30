@@ -1,0 +1,40 @@
+# compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/test/wav_test.3.scp ark:- | copy-feats --compress=true ark:- ark,scp:/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.3.ark,/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.3.scp 
+# Started at Mon Apr 29 15:17:30 AEST 2019
+#
+copy-feats --compress=true ark:- ark,scp:/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.3.ark,/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.3.scp 
+compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/test/wav_test.3.scp ark:- 
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MLNT0_SX102
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MLNT0_SX12
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MLNT0_SX192
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MLNT0_SX282
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MLNT0_SX372
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MNJM0_SI1580
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MNJM0_SI2210
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MNJM0_SI950
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MNJM0_SX140
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 10 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MNJM0_SX230
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MNJM0_SX320
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MNJM0_SX410
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MNJM0_SX50
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MTLS0_SI1370
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MTLS0_SI2000
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MTLS0_SI740
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MTLS0_SX110
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MTLS0_SX20
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MTLS0_SX200
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 20 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MTLS0_SX290
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MTLS0_SX380
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MWBT0_SI1553
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MWBT0_SI2183
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MWBT0_SI923
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MWBT0_SX113
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MWBT0_SX203
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MWBT0_SX23
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MWBT0_SX293
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MWBT0_SX383
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:176)  Done 29 out of 29 utterances.
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 29 feature matrices.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 15:17:30 AEST 2019, elapsed time 0 seconds

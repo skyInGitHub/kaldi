@@ -1,0 +1,138 @@
+# gmm-align-compiled --transition-scale=1.0 --acoustic-scale=0.1 --self-loop-scale=0.1 --beam=10 --retry-beam=40 --careful=false "gmm-boost-silence --boost=1.0 1 exp/tri2/20.mdl - |" "ark:gunzip -c exp/tri2/fsts.9.gz|" "ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split10/9/utt2spk scp:data/train/split10/9/cmvn.scp scp:data/train/split10/9/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2/12.mat ark:- ark:- |" "ark:|gzip -c >exp/tri2/ali.9.gz" 
+# Started at Mon Apr 29 12:57:01 AEST 2019
+#
+gmm-align-compiled --transition-scale=1.0 --acoustic-scale=0.1 --self-loop-scale=0.1 --beam=10 --retry-beam=40 --careful=false 'gmm-boost-silence --boost=1.0 1 exp/tri2/20.mdl - |' 'ark:gunzip -c exp/tri2/fsts.9.gz|' 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split10/9/utt2spk scp:data/train/split10/9/cmvn.scp scp:data/train/split10/9/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2/12.mat ark:- ark:- |' 'ark:|gzip -c >exp/tri2/ali.9.gz' 
+gmm-boost-silence --boost=1.0 1 exp/tri2/20.mdl - 
+LOG (gmm-boost-silence[5.5.294-06484]:main():gmm-boost-silence.cc:93) Boosted weights for 3 pdfs, by factor of 1
+LOG (gmm-boost-silence[5.5.294-06484]:main():gmm-boost-silence.cc:103) Wrote model to -
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/train/split10/9/utt2spk scp:data/train/split10/9/cmvn.scp scp:data/train/split10/9/feats.scp ark:- 
+transform-feats exp/tri2/12.mat ark:- ark:- 
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMAR0_SI1336
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMAR0_SI1966
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMAR0_SI706
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMAR0_SX166
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMAR0_SX256
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMAR0_SX346
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMAR0_SX436
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMAR0_SX76
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMDS0_SI1343
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMDS0_SI1973
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMDS0_SI713
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMDS0_SX173
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMDS0_SX263
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMDS0_SX353
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMDS0_SX443
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMDS0_SX83
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMEB0_SI1357
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMEB0_SI1987
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMEB0_SI727
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMEB0_SX187
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMEB0_SX327
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMEB0_SX367
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMEB0_SX7
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMEB0_SX97
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMGK0_SI1322
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMGK0_SI1952
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMGK0_SI692
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMGK0_SX152
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMGK0_SX242
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMGK0_SX332
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMGK0_SX422
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMGK0_SX62
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMJB1_SI1408
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMJB1_SI2038
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMJB1_SI778
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMJB1_SX148
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMJB1_SX238
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMJB1_SX328
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMJB1_SX418
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMJB1_SX58
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMSM0_SI1106
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMSM0_SI1736
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMSM0_SI476
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMSM0_SX116
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMSM0_SX206
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMSM0_SX26
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMSM0_SX296
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMSM0_SX386
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMXS0_SI2136
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMXS0_SI629
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMXS0_SI876
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMXS0_SX156
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMXS0_SX246
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMXS0_SX336
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMXS0_SX426
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MMXS0_SX66
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPPC0_SI1412
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPPC0_SI2042
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPPC0_SI782
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPPC0_SX152
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPPC0_SX242
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPPC0_SX332
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPPC0_SX422
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPPC0_SX62
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPRB0_SI1205
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPRB0_SI1215
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPRB0_SI575
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPRB0_SX125
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPRB0_SX215
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPRB0_SX305
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPRB0_SX35
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MPRB0_SX395
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRAB0_SI1224
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRAB0_SI1854
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRAB0_SI594
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRAB0_SX144
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRAB0_SX234
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRAB0_SX324
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRAB0_SX414
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRAB0_SX54
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCG0_SI1428
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCG0_SI2058
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCG0_SI798
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCG0_SX168
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCG0_SX258
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCG0_SX348
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCG0_SX438
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCG0_SX78
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCW0_SI1371
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCW0_SI2001
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCW0_SI741
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCW0_SX111
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCW0_SX201
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCW0_SX21
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCW0_SX291
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRCW0_SX381
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRDD0_SI1050
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRDD0_SI1680
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRDD0_SI2310
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRDD0_SX150
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRDD0_SX240
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRDD0_SX277
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRDD0_SX330
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRDD0_SX60
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRFK0_SI1076
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRFK0_SI1706
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRFK0_SI2336
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRFK0_SX176
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRFK0_SX266
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRFK0_SX356
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRFK0_SX446
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRFK0_SX86
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 120 utterances, errors on 0
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRLD0_SI1594
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRLD0_SI2224
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRLD0_SI964
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRLD0_SX154
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRLD0_SX244
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRLD0_SX334
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRLD0_SX424
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -88.9877 over 35559 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 120 utterances; 0 had errors.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MRLD0_SX64
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:135) Overall log-likelihood per frame is -47.2853 over 35559 frames.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:137) Retried 0 out of 120 utterances.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:139) Done 120, errors on 0
+# Accounting: time=1 threads=1
+# Ended (code 0) at Mon Apr 29 12:57:02 AEST 2019, elapsed time 1 seconds

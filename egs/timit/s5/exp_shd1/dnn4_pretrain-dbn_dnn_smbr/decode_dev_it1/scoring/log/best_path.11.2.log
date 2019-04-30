@@ -1,0 +1,42 @@
+# lattice-align-phones exp/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it1/../final.mdl "ark:gunzip -c exp/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it1/lat.2.gz|" ark:- | lattice-to-ctm-conf --acoustic-scale=.09090909 --lm-scale=1.0 ark:- exp/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it1/scoring/11.2.ctm 
+# Started at Mon Apr 29 15:59:35 AEST 2019
+#
+lattice-align-phones exp/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it1/../final.mdl 'ark:gunzip -c exp/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it1/lat.2.gz|' ark:- 
+lattice-to-ctm-conf --acoustic-scale=.09090909 --lm-scale=1.0 ark:- exp/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it1/scoring/11.2.ctm 
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMAH0_SI1289, Bayes Risk 4.72999, avg. confidence per-word 0.819584
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMAH0_SI1919, Bayes Risk 4.56989, avg. confidence per-word 0.873712
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMAH0_SI659, Bayes Risk 7.93661, avg. confidence per-word 0.865395
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMAH0_SX119, Bayes Risk 6.93277, avg. confidence per-word 0.852508
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMAH0_SX209, Bayes Risk 4.29499, avg. confidence per-word 0.881952
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMAH0_SX29, Bayes Risk 5.34263, avg. confidence per-word 0.860961
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMAH0_SX299, Bayes Risk 6.74272, avg. confidence per-word 0.825337
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance FMAH0_SX389, Bayes Risk 4.53553, avg. confidence per-word 0.878299
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJFC0_SI1033, Bayes Risk 5.71013, avg. confidence per-word 0.803166
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJFC0_SI1663, Bayes Risk 2.49645, avg. confidence per-word 0.934532
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJFC0_SI2293, Bayes Risk 7.42041, avg. confidence per-word 0.894532
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJFC0_SX133, Bayes Risk 6.58484, avg. confidence per-word 0.845546
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJFC0_SX223, Bayes Risk 3.49785, avg. confidence per-word 0.901066
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJFC0_SX313, Bayes Risk 5.70928, avg. confidence per-word 0.878365
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJFC0_SX403, Bayes Risk 5.67691, avg. confidence per-word 0.879899
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJFC0_SX43, Bayes Risk 5.90668, avg. confidence per-word 0.83642
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJSW0_SI1010, Bayes Risk 8.08271, avg. confidence per-word 0.887899
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJSW0_SI1640, Bayes Risk 2.19923, avg. confidence per-word 0.881065
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJSW0_SI2270, Bayes Risk 4.77602, avg. confidence per-word 0.868906
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJSW0_SX110, Bayes Risk 5.0795, avg. confidence per-word 0.887615
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJSW0_SX20, Bayes Risk 2.81143, avg. confidence per-word 0.916283
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJSW0_SX200, Bayes Risk 4.42665, avg. confidence per-word 0.898112
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJSW0_SX290, Bayes Risk 3.29936, avg. confidence per-word 0.938967
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MJSW0_SX380, Bayes Risk 6.40776, avg. confidence per-word 0.849799
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MPDF0_SI1542, Bayes Risk 5.73214, avg. confidence per-word 0.881643
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MPDF0_SI2172, Bayes Risk 5.41814, avg. confidence per-word 0.882344
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MPDF0_SI912, Bayes Risk 3.93515, avg. confidence per-word 0.90312
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MPDF0_SX102, Bayes Risk 4.85285, avg. confidence per-word 0.906703
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MPDF0_SX12, Bayes Risk 3.56909, avg. confidence per-word 0.889484
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MPDF0_SX192, Bayes Risk 1.56609, avg. confidence per-word 0.944131
+LOG (lattice-align-phones[5.5.294-06484]:main():lattice-align-phones.cc:104) Successfully aligned 32 lattices; 0 had errors.
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MPDF0_SX282, Bayes Risk 5.26887, avg. confidence per-word 0.898117
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:175) For utterance MPDF0_SX372, Bayes Risk 3.50621, avg. confidence per-word 0.909926
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:184) Done 32 lattices.
+LOG (lattice-to-ctm-conf[5.5.294-06484]:main():lattice-to-ctm-conf.cc:185) Overall average Bayes Risk per sentence is 4.96934 and per word, 0.146561
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 15:59:35 AEST 2019, elapsed time 0 seconds

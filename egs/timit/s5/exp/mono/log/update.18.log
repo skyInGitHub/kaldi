@@ -1,0 +1,19 @@
+# gmm-est --write-occs=exp/mono/19.occs --mix-up=620 --power=0.25 exp/mono/18.mdl "gmm-sum-accs - exp/mono/18.*.acc|" exp/mono/19.mdl 
+# Started at Mon Apr 29 16:34:06 AEST 2019
+#
+gmm-est --write-occs=exp/mono/19.occs --mix-up=620 --power=0.25 exp/mono/18.mdl 'gmm-sum-accs - exp/mono/18.*.acc|' exp/mono/19.mdl 
+gmm-sum-accs - exp/mono/18.1.acc exp/mono/18.10.acc exp/mono/18.2.acc exp/mono/18.3.acc exp/mono/18.4.acc exp/mono/18.5.acc exp/mono/18.6.acc exp/mono/18.7.acc exp/mono/18.8.acc exp/mono/18.9.acc 
+LOG (gmm-sum-accs[5.5.294-06484]:main():gmm-sum-accs.cc:63) Summed 10 stats, total count 367922, avg like/frame -99.7657
+LOG (gmm-sum-accs[5.5.294-06484]:main():gmm-sum-accs.cc:66) Total count of stats is 367922
+LOG (gmm-sum-accs[5.5.294-06484]:main():gmm-sum-accs.cc:67) Written stats to -
+LOG (gmm-est[5.5.294-06484]:MleUpdate():transition-model.cc:528) TransitionModel::Update, objf change is 0.000154885 per frame over 367922 frames. 
+LOG (gmm-est[5.5.294-06484]:MleUpdate():transition-model.cc:531) 0 probabilities floored, 0 out of 144 transition-states skipped due to insuffient data (it is normal to have some skipped.)
+LOG (gmm-est[5.5.294-06484]:main():gmm-est.cc:102) Transition model update: Overall 0.000154885 log-like improvement per frame over 367922 frames.
+LOG (gmm-est[5.5.294-06484]:MleAmDiagGmmUpdate():mle-am-diag-gmm.cc:225) 0 variance elements floored in 0 Gaussians, out of 592
+LOG (gmm-est[5.5.294-06484]:MleAmDiagGmmUpdate():mle-am-diag-gmm.cc:229) Removed 0 Gaussians due to counts < --min-gaussian-occupancy=10 and --remove-low-count-gaussians=true
+LOG (gmm-est[5.5.294-06484]:main():gmm-est.cc:113) GMM update: Overall 0.0553212 objective function improvement per frame over 367922 frames
+LOG (gmm-est[5.5.294-06484]:main():gmm-est.cc:116) GMM update: Overall avg like per frame = -99.7657 over 367922 frames.
+LOG (gmm-est[5.5.294-06484]:SplitByCount():am-diag-gmm.cc:116) Split 144 states with target = 620, power = 0.25, perturb_factor = 0.01 and min_count = 20, split #Gauss from 592 to 620
+LOG (gmm-est[5.5.294-06484]:main():gmm-est.cc:146) Written model to exp/mono/19.mdl
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 16:34:06 AEST 2019, elapsed time 0 seconds

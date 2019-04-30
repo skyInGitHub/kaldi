@@ -1,0 +1,37 @@
+# gmm-align-compiled --transition-scale=1.0 --acoustic-scale=0.1 --self-loop-scale=0.1 --beam=10 --retry-beam=40 --careful=false "gmm-boost-silence --boost=1.0 1 exp/tri3/final.mdl - |" "ark:gunzip -c exp/tri3_ali_test/fsts.4.gz|" "ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/test/split4/4/utt2spk ark:exp/tri3_ali_test/trans.4 ark:- ark:- |" "ark:|gzip -c >exp/tri3_ali_test/ali.4.gz" 
+# Started at Tue Apr 30 08:07:52 AEST 2019
+#
+gmm-align-compiled --transition-scale=1.0 --acoustic-scale=0.1 --self-loop-scale=0.1 --beam=10 --retry-beam=40 --careful=false 'gmm-boost-silence --boost=1.0 1 exp/tri3/final.mdl - |' 'ark:gunzip -c exp/tri3_ali_test/fsts.4.gz|' 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/test/split4/4/utt2spk ark:exp/tri3_ali_test/trans.4 ark:- ark:- |' 'ark:|gzip -c >exp/tri3_ali_test/ali.4.gz' 
+gmm-boost-silence --boost=1.0 1 exp/tri3/final.mdl - 
+LOG (gmm-boost-silence[5.5.294-06484]:main():gmm-boost-silence.cc:93) Boosted weights for 3 pdfs, by factor of 1
+LOG (gmm-boost-silence[5.5.294-06484]:main():gmm-boost-silence.cc:103) Wrote model to -
+transform-feats --utt2spk=ark:data/test/split4/4/utt2spk ark:exp/tri3_ali_test/trans.4 ark:- ark:- 
+transform-feats exp/tri3/final.mat ark:- ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- 
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MTAS1_SI1473
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MTAS1_SI2098
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MTAS1_SI838
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MTAS1_SX118
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MTAS1_SX208
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MTAS1_SX28
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MTAS1_SX298
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 16 utterances, errors on 0
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MTAS1_SX388
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MWEW0_SI1361
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MWEW0_SI1991
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MWEW0_SI731
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MWEW0_SX101
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MWEW0_SX11
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -89.0921 over 4598 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 16 utterances; 0 had errors.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MWEW0_SX191
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MWEW0_SX281
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average logdet is -0.712673 over 4598 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 16 utterances; 0 had errors.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) MWEW0_SX371
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:135) Overall log-likelihood per frame is -47.6599 over 4598 frames.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:137) Retried 0 out of 16 utterances.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:139) Done 16, errors on 0
+# Accounting: time=0 threads=1
+# Ended (code 0) at Tue Apr 30 08:07:52 AEST 2019, elapsed time 0 seconds

@@ -1,0 +1,19 @@
+# gmm-rescore-lattice exp/tri3/final.mdl "ark:gunzip -c exp/tri3/decode_test/lat.tmp.2.gz|" "ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split2/2/utt2spk scp:data/test/split2/2/cmvn.scp scp:data/test/split2/2/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/test/split2/2/utt2spk ark:exp/tri3/decode_test/trans.2 ark:- ark:- |" ark:- | lattice-determinize-pruned --acoustic-scale=0.083333 --beam=6.0 ark:- "ark:|gzip -c > exp/tri3/decode_test/lat.2.gz" && rm exp/tri3/decode_test/lat.tmp.2.gz 
+# Started at Mon Apr 29 12:59:02 AEST 2019
+#
+lattice-determinize-pruned --acoustic-scale=0.083333 --beam=6.0 ark:- 'ark:|gzip -c > exp/tri3/decode_test/lat.2.gz' 
+gmm-rescore-lattice exp/tri3/final.mdl 'ark:gunzip -c exp/tri3/decode_test/lat.tmp.2.gz|' 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split2/2/utt2spk scp:data/test/split2/2/cmvn.scp scp:data/test/split2/2/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/test/split2/2/utt2spk ark:exp/tri3/decode_test/trans.2 ark:- ark:- |' ark:- 
+transform-feats exp/tri3/final.mat ark:- ark:- 
+transform-feats --utt2spk=ark:data/test/split2/2/utt2spk ark:exp/tri3/decode_test/trans.2 ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/test/split2/2/utt2spk scp:data/test/split2/2/cmvn.scp scp:data/test/split2/2/feats.scp ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 16 utterances, errors on 0
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -88.9877 over 4030 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 16 utterances; 0 had errors.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average logdet is -0.612903 over 4030 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 16 utterances; 0 had errors.
+LOG (gmm-rescore-lattice[5.5.294-06484]:main():gmm-rescore-lattice.cc:103) Done 16 lattices with errors on 0, #frames is 4030
+LOG (lattice-determinize-pruned[5.5.294-06484]:main():lattice-determinize-pruned.cc:159) Average input-lattice depth (measured at at state level) is 15.7772, output depth is 10.6499, over 4030 frames  (average num-frames = 251.875).
+LOG (lattice-determinize-pruned[5.5.294-06484]:main():lattice-determinize-pruned.cc:164) Done 16 lattices, determinization finished earlier than specified by the beam (or output was empty) on 0 of these.
+# Accounting: time=1 threads=1
+# Ended (code 0) at Mon Apr 29 12:59:03 AEST 2019, elapsed time 1 seconds

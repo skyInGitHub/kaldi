@@ -1,0 +1,21 @@
+# compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/test/wav_test.2.scp ark:- | copy-feats --compress=true ark:- ark,scp:/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.2.ark,/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.2.scp 
+# Started at Mon Apr 29 12:53:57 AEST 2019
+#
+copy-feats --compress=true ark:- ark,scp:/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.2.ark,/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.2.scp 
+compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/test/wav_test.2.scp ark:- 
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCMJ0_SX104
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCMJ0_SX14
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCMJ0_SX194
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCMJ0_SX284
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCMJ0_SX374
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDAB0_SI1039
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDAB0_SI1669
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDAB0_SI2299
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDAB0_SX139
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 10 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDAB0_SX229
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDAB0_SX319
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:176)  Done 11 out of 11 utterances.
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 11 feature matrices.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 12:53:57 AEST 2019, elapsed time 0 seconds

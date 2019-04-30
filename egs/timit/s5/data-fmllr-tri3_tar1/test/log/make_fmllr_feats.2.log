@@ -1,0 +1,16 @@
+# copy-feats 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split3/2/utt2spk scp:data/test/split3/2/cmvn.scp scp:data/test/split3/2/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/test/split3/2/utt2spk "ark:cat exp/tri3/decode_test/trans.* |" ark:- ark:- |' ark,scp:/home/sky/kaldi/egs/timit/s5/data-fmllr-tri3/test/data/feats_fmllr_test.2.ark,/home/sky/kaldi/egs/timit/s5/data-fmllr-tri3/test/data/feats_fmllr_test.2.scp 
+# Started at Mon Apr 29 13:34:05 AEST 2019
+#
+copy-feats 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split3/2/utt2spk scp:data/test/split3/2/cmvn.scp scp:data/test/split3/2/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/test/split3/2/utt2spk "ark:cat exp/tri3/decode_test/trans.* |" ark:- ark:- |' ark,scp:/home/sky/kaldi/egs/timit/s5/data-fmllr-tri3/test/data/feats_fmllr_test.2.ark,/home/sky/kaldi/egs/timit/s5/data-fmllr-tri3/test/data/feats_fmllr_test.2.scp 
+transform-feats exp/tri3/final.mat ark:- ark:- 
+transform-feats --utt2spk=ark:data/test/split3/2/utt2spk 'ark:cat exp/tri3/decode_test/trans.* |' ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/test/split3/2/utt2spk scp:data/test/split3/2/cmvn.scp scp:data/test/split3/2/feats.scp ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 8 utterances, errors on 0
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -88.9877 over 1963 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 8 utterances; 0 had errors.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average logdet is -1.30954 over 1963 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 8 utterances; 0 had errors.
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 8 feature matrices.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 13:34:05 AEST 2019, elapsed time 0 seconds

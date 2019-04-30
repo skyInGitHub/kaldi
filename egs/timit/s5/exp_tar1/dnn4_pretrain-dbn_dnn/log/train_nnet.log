@@ -1,0 +1,15 @@
+# steps/nnet/train.sh --feature-transform exp/dnn4_pretrain-dbn/final.feature_transform --dbn exp/dnn4_pretrain-dbn/6.dbn --hid-layers 0 --learn-rate 0.008 data-fmllr-tri3/train_tr90 data-fmllr-tri3/train_cv10 data/lang exp/tri3_ali exp/tri3_ali exp/dnn4_pretrain-dbn_dnn 
+# Started at Mon Apr 29 13:34:07 AEST 2019
+#
+steps/nnet/train.sh --feature-transform exp/dnn4_pretrain-dbn/final.feature_transform --dbn exp/dnn4_pretrain-dbn/6.dbn --hid-layers 0 --learn-rate 0.008 data-fmllr-tri3/train_tr90 data-fmllr-tri3/train_cv10 data/lang exp/tri3_ali exp/tri3_ali exp/dnn4_pretrain-dbn_dnn
+
+# INFO
+steps/nnet/train.sh : Training Neural Network
+	 dir       : exp/dnn4_pretrain-dbn_dnn 
+	 Train-set : data-fmllr-tri3/train_tr90 1112, exp/tri3_ali 
+	 CV-set    : data-fmllr-tri3/train_cv10 120 exp/tri3_ali 
+
+SKIPPING TRAINING... (steps/nnet/train.sh)
+nnet already trained : exp/dnn4_pretrain-dbn_dnn/final.nnet (nnet/nnet_dbn_dnn_iter12_learnrate3.125e-05_tr0.8615_cv1.9237_final_)
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 13:34:07 AEST 2019, elapsed time 0 seconds

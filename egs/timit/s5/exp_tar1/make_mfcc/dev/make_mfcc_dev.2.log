@@ -1,0 +1,73 @@
+# compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/dev/wav_dev.2.scp ark:- | copy-feats --compress=true ark:- ark,scp:/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_dev.2.ark,/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_dev.2.scp 
+# Started at Mon Apr 29 12:53:56 AEST 2019
+#
+copy-feats --compress=true ark:- ark,scp:/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_dev.2.ark,/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_dev.2.scp 
+compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/dev/wav_dev.2.scp ark:- 
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBDG0_SX113
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBDG0_SX203
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBDG0_SX23
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBDG0_SX293
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBDG0_SX383
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBNS0_SI1220
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBNS0_SI1850
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBNS0_SI590
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBNS0_SX140
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 10 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBNS0_SX230
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBNS0_SX320
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBNS0_SX410
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBNS0_SX50
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBWM0_SI1304
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBWM0_SI1934
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBWM0_SI674
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBWM0_SX134
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBWM0_SX224
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBWM0_SX314
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 20 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBWM0_SX404
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MBWM0_SX44
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCSH0_SI1549
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCSH0_SI2179
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCSH0_SI919
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCSH0_SX109
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCSH0_SX19
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCSH0_SX199
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCSH0_SX289
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MCSH0_SX379
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 30 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLF0_SI1583
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLF0_SI2213
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLF0_SI953
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLF0_SX143
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLF0_SX233
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLF0_SX323
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLF0_SX413
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLF0_SX53
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLS0_SI1628
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLS0_SI2258
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 40 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLS0_SI998
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLS0_SX188
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLS0_SX278
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLS0_SX368
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLS0_SX8
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDLS0_SX98
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDVC0_SI2174
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDVC0_SI2196
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDVC0_SI936
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDVC0_SX126
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 50 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDVC0_SX216
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDVC0_SX306
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDVC0_SX36
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MDVC0_SX396
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MERS0_SI1019
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MERS0_SI1649
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MERS0_SI497
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MERS0_SX119
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MERS0_SX209
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key MERS0_SX29
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:176)  Done 59 out of 59 utterances.
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 59 feature matrices.
+# Accounting: time=1 threads=1
+# Ended (code 0) at Mon Apr 29 12:53:57 AEST 2019, elapsed time 1 seconds

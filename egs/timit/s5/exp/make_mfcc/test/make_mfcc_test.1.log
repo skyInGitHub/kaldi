@@ -1,0 +1,35 @@
+# compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/test/wav_test.1.scp ark:- | copy-feats --compress=true ark:- ark,scp:/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.1.ark,/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.1.scp 
+# Started at Mon Apr 29 16:33:54 AEST 2019
+#
+copy-feats --compress=true ark:- ark,scp:/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.1.ark,/home/sky/kaldi/egs/timit/s5/mfcc/raw_mfcc_test.1.scp 
+compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/test/wav_test.1.scp ark:- 
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FELC0_SI1386
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FELC0_SI2016
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FELC0_SI756
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FELC0_SX126
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FELC0_SX216
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FELC0_SX306
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FELC0_SX36
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FELC0_SX396
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMGD0_SI1564
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 10 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMGD0_SI2194
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMGD0_SI934
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMGD0_SX124
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMGD0_SX214
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMGD0_SX304
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMGD0_SX34
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMGD0_SX394
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMLD0_SI2185
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMLD0_SI822
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMLD0_SI925
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:172) Processed 20 utterances
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMLD0_SX115
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMLD0_SX205
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMLD0_SX25
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMLD0_SX295
+VLOG[2] (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:173) Processed features for key FMLD0_SX385
+LOG (compute-mfcc-feats[5.5.294-06484]:main():compute-mfcc-feats.cc:176)  Done 24 out of 24 utterances.
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 24 feature matrices.
+# Accounting: time=1 threads=1
+# Ended (code 0) at Mon Apr 29 16:33:55 AEST 2019, elapsed time 1 seconds

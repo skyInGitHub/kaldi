@@ -1,0 +1,17 @@
+# gmm-acc-stats-ali exp/tri2/10.mdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split10/3/utt2spk scp:data/train/split10/3/cmvn.scp scp:data/train/split10/3/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2/6.mat ark:- ark:- |" "ark,s,cs:gunzip -c exp/tri2/ali.3.gz|" exp/tri2/10.3.acc 
+# Started at Mon Apr 29 15:20:05 AEST 2019
+#
+gmm-acc-stats-ali exp/tri2/10.mdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split10/3/utt2spk scp:data/train/split10/3/cmvn.scp scp:data/train/split10/3/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2/6.mat ark:- ark:- |' 'ark,s,cs:gunzip -c exp/tri2/ali.3.gz|' exp/tri2/10.3.acc 
+apply-cmvn --utt2spk=ark:data/train/split10/3/utt2spk scp:data/train/split10/3/cmvn.scp scp:data/train/split10/3/feats.scp ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+transform-feats exp/tri2/6.mat ark:- ark:- 
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:105) Processed 50 utterances; for utterance FMPG0_SI2232 avg. like is -52.399 over 337 frames.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:105) Processed 100 utterances; for utterance FSAH0_SX164 avg. like is -49.9466 over 291 frames.
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 128 utterances, errors on 0
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -89.5215 over 39861 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 128 utterances; 0 had errors.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:112) Done 128 files, 0 with errors.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:115) Overall avg like per frame (Gaussian only) = -49.7504 over 39861 frames.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:123) Written accs.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 15:20:05 AEST 2019, elapsed time 0 seconds

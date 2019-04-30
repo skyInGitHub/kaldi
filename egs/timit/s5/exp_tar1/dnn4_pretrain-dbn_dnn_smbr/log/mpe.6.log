@@ -1,0 +1,23 @@
+# nnet-train-mpe-sequential --feature-transform=exp/dnn4_pretrain-dbn_dnn/final.feature_transform --class-frame-counts=exp/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts --acoustic-scale=0.2 --lm-scale=1.0 --learn-rate=1e-05 --momentum=0.0 --do-smbr=true --verbose=0 --one-silence-class=true --silence-phones=1 exp/dnn4_pretrain-dbn_dnn_smbr/5.nnet exp/dnn4_pretrain-dbn_dnn_ali/final.mdl "ark,o:copy-feats scp:exp/dnn4_pretrain-dbn_dnn_smbr/train.scp ark:- |" scp:exp/dnn4_pretrain-dbn_dnn_denlats/lat.scp "ark:gunzip -c exp/dnn4_pretrain-dbn_dnn_ali/ali.*.gz |" exp/dnn4_pretrain-dbn_dnn_smbr/6.nnet 
+# Started at Mon Apr 29 13:40:59 AEST 2019
+#
+nnet-train-mpe-sequential --feature-transform=exp/dnn4_pretrain-dbn_dnn/final.feature_transform --class-frame-counts=exp/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts --acoustic-scale=0.2 --lm-scale=1.0 --learn-rate=1e-05 --momentum=0.0 --do-smbr=true --verbose=0 --one-silence-class=true --silence-phones=1 exp/dnn4_pretrain-dbn_dnn_smbr/5.nnet exp/dnn4_pretrain-dbn_dnn_ali/final.mdl 'ark,o:copy-feats scp:exp/dnn4_pretrain-dbn_dnn_smbr/train.scp ark:- |' scp:exp/dnn4_pretrain-dbn_dnn_denlats/lat.scp 'ark:gunzip -c exp/dnn4_pretrain-dbn_dnn_ali/ali.*.gz |' exp/dnn4_pretrain-dbn_dnn_smbr/6.nnet 
+WARNING (nnet-train-mpe-sequential[5.5.294-06484]:SelectGpuId():cu-device.cc:221) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:349) Selecting from 2 GPUs
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(0): TITAN Xp	free:12023M, used:173M, total:12196M, free/total:0.985815
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(1): TITAN Xp	free:11887M, used:305M, total:12192M, free/total:0.974986
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:411) Trying to select device: 0 (automatically), mem_ratio: 0.985815
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:430) Success selecting device 0 free mem ratio: 0.985815
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:FinalizeActiveGpu():cu-device.cc:284) The active GPU is [0]: TITAN Xp	free:11957M, used:239M, total:12196M, free/total:0.980403 version 6.1
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:main():nnet-train-mpe-sequential.cc:192) Removing softmax from the nnet exp/dnn4_pretrain-dbn_dnn_smbr/5.nnet
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:PdfPrior():nnet-pdf-prior.cc:34) Computing pdf-priors from : exp/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:PdfPrior():nnet-pdf-prior.cc:64) Floored 0 pdf-priors (hard-set to 1.84467e+19, which disables DNN output when decoding)
+copy-feats scp:exp/dnn4_pretrain-dbn_dnn_smbr/train.scp ark:- 
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:main():nnet-train-mpe-sequential.cc:217) TRAINING STARTED
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 1232 feature matrices.
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:main():nnet-train-mpe-sequential.cc:384) Appending the softmax exp/dnn4_pretrain-dbn_dnn_smbr/6.nnet
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:main():nnet-train-mpe-sequential.cc:390) TRAINING FINISHED; Time taken = 0.685192 min; processed 9149.93 frames per second.
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:main():nnet-train-mpe-sequential.cc:394) Done 1232 files, 0 with no reference alignments, 0 with no lattices, 0 with other errors.
+LOG (nnet-train-mpe-sequential[5.5.294-06484]:main():nnet-train-mpe-sequential.cc:399) Overall average frame-accuracy is 0.870652 over 376168 frames.
+# Accounting: time=43 threads=1
+# Ended (code 0) at Mon Apr 29 13:41:42 AEST 2019, elapsed time 43 seconds

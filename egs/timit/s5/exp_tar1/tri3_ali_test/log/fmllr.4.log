@@ -1,0 +1,31 @@
+# ali-to-post "ark:gunzip -c exp/tri3_ali_test/pre_ali.4.gz|" ark:- | weight-silence-post 0.0 1 exp/tri3/final.alimdl ark:- ark:- | gmm-post-to-gpost exp/tri3/final.alimdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- |" ark:- ark:- | gmm-est-fmllr-gpost --fmllr-update-type=full --spk2utt=ark:data/test/split4/4/spk2utt exp/tri3/final.mdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- |" ark,s,cs:- ark:exp/tri3_ali_test/trans.4 
+# Started at Mon Apr 29 14:02:49 AEST 2019
+#
+weight-silence-post 0.0 1 exp/tri3/final.alimdl ark:- ark:- 
+gmm-post-to-gpost exp/tri3/final.alimdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- |' ark:- ark:- 
+ali-to-post 'ark:gunzip -c exp/tri3_ali_test/pre_ali.4.gz|' ark:- 
+gmm-est-fmllr-gpost --fmllr-update-type=full --spk2utt=ark:data/test/split4/4/spk2utt exp/tri3/final.mdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- |' ark,s,cs:- ark:exp/tri3_ali_test/trans.4 
+LOG (ali-to-post[5.5.294-06484]:main():ali-to-post.cc:73) Converted 8 alignments.
+LOG (weight-silence-post[5.5.294-06484]:main():weight-silence-post.cc:95) Done 8 posteriors.
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+transform-feats exp/tri3/final.mat ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- 
+apply-cmvn --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 8 utterances, errors on 0
+transform-feats exp/tri3/final.mat ark:- ark:- 
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 8 utterances, errors on 0
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -88.9877 over 2067 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 8 utterances; 0 had errors.
+LOG (gmm-post-to-gpost[5.5.294-06484]:main():gmm-post-to-gpost.cc:124) Done 8 files, 0 with no posteriors, 0 with other errors.
+LOG (gmm-post-to-gpost[5.5.294-06484]:main():gmm-post-to-gpost.cc:128) Overall avg like per frame (Gaussian only) = -56.1594 over 1769 frames.
+LOG (gmm-post-to-gpost[5.5.294-06484]:main():gmm-post-to-gpost.cc:131) Done converting post to gpost
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -88.9877 over 2067 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 8 utterances; 0 had errors.
+LOG (gmm-est-fmllr-gpost[5.5.294-06484]:ComputeFmllrMatrixDiagGmmFull():fmllr-diag-gmm.cc:262) fMLLR objf improvement is 7.64724 per frame over 1769 frames.
+LOG (gmm-est-fmllr-gpost[5.5.294-06484]:main():gmm-est-fmllr-gpost.cc:141) For speaker MKLT0, auxf-impr from fMLLR is 7.64724, over 1769 frames.
+
+LOG (gmm-est-fmllr-gpost[5.5.294-06484]:main():gmm-est-fmllr-gpost.cc:186) Done 8 files, 0 with no gposts, 0 with other errors.
+LOG (gmm-est-fmllr-gpost[5.5.294-06484]:main():gmm-est-fmllr-gpost.cc:188) Overall fMLLR auxf impr per frame is 7.64724 over 1769 frames.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 14:02:49 AEST 2019, elapsed time 0 seconds

@@ -1,0 +1,1 @@
+Copy .../s5/data/train/split3/1/* into this .../s5/data/shd1_inout/in_label/ folder.

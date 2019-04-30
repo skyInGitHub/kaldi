@@ -1,0 +1,17 @@
+# gmm-acc-stats-ali exp/tri2/5.mdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split10/7/utt2spk scp:data/train/split10/7/cmvn.scp scp:data/train/split10/7/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2/4.mat ark:- ark:- |" "ark,s,cs:gunzip -c exp/tri2/ali.7.gz|" exp/tri2/5.7.acc 
+# Started at Mon Apr 29 15:20:02 AEST 2019
+#
+gmm-acc-stats-ali exp/tri2/5.mdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split10/7/utt2spk scp:data/train/split10/7/cmvn.scp scp:data/train/split10/7/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2/4.mat ark:- ark:- |' 'ark,s,cs:gunzip -c exp/tri2/ali.7.gz|' exp/tri2/5.7.acc 
+transform-feats exp/tri2/4.mat ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/train/split10/7/utt2spk scp:data/train/split10/7/cmvn.scp scp:data/train/split10/7/feats.scp ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:105) Processed 50 utterances; for utterance MLSH0_SI2047 avg. like is -49.929 over 277 frames.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:105) Processed 100 utterances; for utterance MMDM0_SX141 avg. like is -50.1574 over 314 frames.
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 120 utterances, errors on 0
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -90.0521 over 37684 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 120 utterances; 0 had errors.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:112) Done 120 files, 0 with errors.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:115) Overall avg like per frame (Gaussian only) = -50.9057 over 37684 frames.
+LOG (gmm-acc-stats-ali[5.5.294-06484]:main():gmm-acc-stats-ali.cc:123) Written accs.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Apr 29 15:20:02 AEST 2019, elapsed time 0 seconds

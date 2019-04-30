@@ -8,6 +8,13 @@ if [ $# -ne 1 ]; then
    echo "Argument should be the Timit directory, see ../run.sh for example."
    exit 1;
 fi
+# if [ $# -ne 2 ]; then
+#    echo "Argument should be the Timit directory, see ../run.sh for example."
+#    echo "For subset <sky/dataset/TIMIT> <1(/2/3)>"
+#    exit 1;
+# fi
+
+# sub=$2
 
 dir=`pwd`/data/local/data
 lmdir=`pwd`/data/local/nist_lm

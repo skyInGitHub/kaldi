@@ -1,0 +1,455 @@
+DETAILED OVERALL REPORT FOR THE SYSTEM: exp/dnn4_pretrain-dbn_dnn/decode_dev/score_6/ctm_39phn
+
+SENTENCE RECOGNITION PERFORMANCE
+
+ sentences                                         176
+ with errors                             99.4%   ( 175)
+
+   with substitions                      98.9%   ( 174)
+   with deletions                        77.3%   ( 136)
+   with insertions                       52.3%   (  92)
+
+
+WORD RECOGNITION PERFORMANCE
+
+Percent Total Error       =   19.8%   (1305)
+
+Percent Correct           =   82.6%   (5445)
+
+Percent Substitution      =   11.9%   ( 786)
+Percent Deletions         =    5.4%   ( 358)
+Percent Insertions        =    2.4%   ( 161)
+Percent Word Accuracy     =   80.2%
+
+
+Ref. words                =           (6589)
+Hyp. words                =           (6392)
+Aligned words             =           (6750)
+
+CONFUSION PAIRS                  Total                 (237)
+                                 With >=  1 occurances (237)
+
+   1:   39  ->  ih ==> ah
+   2:   37  ->  ah ==> ih
+   3:   32  ->  z ==> s
+   4:   20  ->  ih ==> iy
+   5:   18  ->  eh ==> ih
+   6:   18  ->  m ==> n
+   7:   17  ->  ae ==> eh
+   8:   16  ->  r ==> er
+   9:   16  ->  s ==> z
+  10:   15  ->  d ==> t
+  11:   14  ->  er ==> r
+  12:   14  ->  ih ==> eh
+  13:   13  ->  g ==> k
+  14:   10  ->  ih ==> er
+  15:   10  ->  ng ==> n
+  16:   10  ->  ow ==> ah
+  17:   10  ->  uw ==> iy
+  18:    9  ->  ah ==> eh
+  19:    9  ->  iy ==> ih
+  20:    9  ->  uw ==> ih
+  21:    8  ->  er ==> ih
+  22:    7  ->  aa ==> ay
+  23:    7  ->  ah ==> aa
+  24:    7  ->  d ==> dh
+  25:    7  ->  eh ==> ah
+  26:    7  ->  l ==> ow
+  27:    7  ->  n ==> m
+  28:    7  ->  v ==> f
+  29:    6  ->  b ==> p
+  30:    6  ->  er ==> ah
+  31:    6  ->  ey ==> ih
+  32:    6  ->  sh ==> ch
+  33:    6  ->  th ==> dh
+  34:    6  ->  uh ==> ih
+  35:    5  ->  aa ==> ah
+  36:    5  ->  ah ==> er
+  37:    5  ->  ay ==> ah
+  38:    5  ->  dh ==> d
+  39:    5  ->  eh ==> ae
+  40:    5  ->  ey ==> eh
+  41:    5  ->  t ==> d
+  42:    5  ->  v ==> b
+  43:    4  ->  ah ==> ow
+  44:    4  ->  aw ==> aa
+  45:    4  ->  d ==> dx
+  46:    4  ->  ey ==> iy
+  47:    4  ->  ih ==> ey
+  48:    4  ->  iy ==> ey
+  49:    4  ->  ow ==> ih
+  50:    4  ->  t ==> dh
+  51:    4  ->  uw ==> w
+  52:    4  ->  v ==> sil
+  53:    3  ->  ae ==> ih
+  54:    3  ->  aw ==> ae
+  55:    3  ->  ay ==> ey
+  56:    3  ->  ch ==> sh
+  57:    3  ->  ch ==> t
+  58:    3  ->  d ==> g
+  59:    3  ->  dh ==> t
+  60:    3  ->  dx ==> d
+  61:    3  ->  f ==> sil
+  62:    3  ->  ih ==> uw
+  63:    3  ->  jh ==> ch
+  64:    3  ->  l ==> m
+  65:    3  ->  n ==> ih
+  66:    3  ->  n ==> ng
+  67:    3  ->  ow ==> l
+  68:    3  ->  p ==> b
+  69:    3  ->  sil ==> v
+  70:    3  ->  t ==> k
+  71:    3  ->  uh ==> ah
+  72:    3  ->  uw ==> ah
+  73:    3  ->  uw ==> uh
+  74:    3  ->  v ==> dh
+  75:    3  ->  v ==> dx
+  76:    3  ->  w ==> f
+  77:    2  ->  aa ==> ow
+  78:    2  ->  ae ==> ah
+  79:    2  ->  ae ==> aw
+  80:    2  ->  ah ==> iy
+  81:    2  ->  ah ==> n
+  82:    2  ->  ah ==> sil
+  83:    2  ->  ah ==> uh
+  84:    2  ->  ay ==> aa
+  85:    2  ->  ay ==> aw
+  86:    2  ->  ay ==> eh
+  87:    2  ->  ay ==> sil
+  88:    2  ->  b ==> dh
+  89:    2  ->  dh ==> b
+  90:    2  ->  dh ==> p
+  91:    2  ->  dh ==> th
+  92:    2  ->  dh ==> v
+  93:    2  ->  dx ==> b
+  94:    2  ->  eh ==> ey
+  95:    2  ->  f ==> v
+  96:    2  ->  ih ==> ay
+  97:    2  ->  k ==> g
+  98:    2  ->  k ==> t
+  99:    2  ->  l ==> aa
+ 100:    2  ->  l ==> v
+ 101:    2  ->  m ==> b
+ 102:    2  ->  n ==> ah
+ 103:    2  ->  n ==> dx
+ 104:    2  ->  n ==> iy
+ 105:    2  ->  ng ==> m
+ 106:    2  ->  ow ==> eh
+ 107:    2  ->  p ==> dh
+ 108:    2  ->  p ==> hh
+ 109:    2  ->  p ==> t
+ 110:    2  ->  r ==> eh
+ 111:    2  ->  sil ==> dx
+ 112:    2  ->  sil ==> er
+ 113:    2  ->  sil ==> ih
+ 114:    2  ->  th ==> f
+ 115:    2  ->  th ==> t
+ 116:    2  ->  uh ==> eh
+ 117:    2  ->  uw ==> er
+ 118:    2  ->  v ==> ow
+ 119:    2  ->  w ==> l
+ 120:    2  ->  y ==> iy
+ 121:    1  ->  aa ==> ae
+ 122:    1  ->  aa ==> aw
+ 123:    1  ->  aa ==> eh
+ 124:    1  ->  aa ==> g
+ 125:    1  ->  aa ==> p
+ 126:    1  ->  ae ==> ay
+ 127:    1  ->  ae ==> ey
+ 128:    1  ->  ah ==> aw
+ 129:    1  ->  ah ==> ay
+ 130:    1  ->  ah ==> b
+ 131:    1  ->  ah ==> dh
+ 132:    1  ->  ah ==> r
+ 133:    1  ->  ah ==> s
+ 134:    1  ->  aw ==> ah
+ 135:    1  ->  aw ==> l
+ 136:    1  ->  aw ==> r
+ 137:    1  ->  aw ==> v
+ 138:    1  ->  ay ==> n
+ 139:    1  ->  b ==> d
+ 140:    1  ->  d ==> ah
+ 141:    1  ->  d ==> b
+ 142:    1  ->  d ==> k
+ 143:    1  ->  dh ==> f
+ 144:    1  ->  dh ==> s
+ 145:    1  ->  dx ==> dh
+ 146:    1  ->  dx ==> er
+ 147:    1  ->  dx ==> sil
+ 148:    1  ->  eh ==> aa
+ 149:    1  ->  eh ==> aw
+ 150:    1  ->  eh ==> dh
+ 151:    1  ->  eh ==> er
+ 152:    1  ->  eh ==> f
+ 153:    1  ->  eh ==> ow
+ 154:    1  ->  er ==> aa
+ 155:    1  ->  er ==> ow
+ 156:    1  ->  er ==> uw
+ 157:    1  ->  f ==> p
+ 158:    1  ->  f ==> s
+ 159:    1  ->  f ==> th
+ 160:    1  ->  g ==> b
+ 161:    1  ->  g ==> d
+ 162:    1  ->  g ==> dh
+ 163:    1  ->  g ==> jh
+ 164:    1  ->  g ==> p
+ 165:    1  ->  hh ==> d
+ 166:    1  ->  hh ==> er
+ 167:    1  ->  hh ==> k
+ 168:    1  ->  hh ==> n
+ 169:    1  ->  hh ==> sil
+ 170:    1  ->  ih ==> aw
+ 171:    1  ->  ih ==> dh
+ 172:    1  ->  ih ==> n
+ 173:    1  ->  ih ==> oy
+ 174:    1  ->  ih ==> sil
+ 175:    1  ->  ih ==> t
+ 176:    1  ->  ih ==> uh
+ 177:    1  ->  ih ==> w
+ 178:    1  ->  ih ==> y
+ 179:    1  ->  iy ==> ng
+ 180:    1  ->  iy ==> uw
+ 181:    1  ->  jh ==> sh
+ 182:    1  ->  k ==> dh
+ 183:    1  ->  l ==> ah
+ 184:    1  ->  l ==> dh
+ 185:    1  ->  l ==> uh
+ 186:    1  ->  l ==> w
+ 187:    1  ->  m ==> ah
+ 188:    1  ->  m ==> dh
+ 189:    1  ->  m ==> ng
+ 190:    1  ->  n ==> d
+ 191:    1  ->  n ==> dh
+ 192:    1  ->  n ==> uw
+ 193:    1  ->  n ==> w
+ 194:    1  ->  ng ==> aa
+ 195:    1  ->  ng ==> sil
+ 196:    1  ->  ow ==> aa
+ 197:    1  ->  ow ==> aw
+ 198:    1  ->  ow ==> uw
+ 199:    1  ->  oy ==> ey
+ 200:    1  ->  p ==> k
+ 201:    1  ->  r ==> ay
+ 202:    1  ->  r ==> ih
+ 203:    1  ->  r ==> jh
+ 204:    1  ->  r ==> l
+ 205:    1  ->  r ==> p
+ 206:    1  ->  r ==> sh
+ 207:    1  ->  r ==> v
+ 208:    1  ->  s ==> t
+ 209:    1  ->  sh ==> ih
+ 210:    1  ->  sh ==> jh
+ 211:    1  ->  sil ==> ah
+ 212:    1  ->  sil ==> dh
+ 213:    1  ->  sil ==> eh
+ 214:    1  ->  sil ==> f
+ 215:    1  ->  sil ==> n
+ 216:    1  ->  sil ==> ng
+ 217:    1  ->  t ==> b
+ 218:    1  ->  t ==> v
+ 219:    1  ->  th ==> b
+ 220:    1  ->  th ==> ih
+ 221:    1  ->  th ==> s
+ 222:    1  ->  th ==> v
+ 223:    1  ->  th ==> z
+ 224:    1  ->  uh ==> uw
+ 225:    1  ->  uw ==> l
+ 226:    1  ->  uw ==> sil
+ 227:    1  ->  v ==> er
+ 228:    1  ->  v ==> ih
+ 229:    1  ->  v ==> m
+ 230:    1  ->  v ==> r
+ 231:    1  ->  v ==> z
+ 232:    1  ->  w ==> ow
+ 233:    1  ->  y ==> aw
+ 234:    1  ->  y ==> g
+ 235:    1  ->  y ==> ng
+ 236:    1  ->  z ==> dh
+ 237:    1  ->  z ==> oy
+     -------
+       786
+
+
+
+INSERTIONS                       Total                 (32)
+                                 With >=  1 occurances (32)
+
+   1:   43  ->  sil
+   2:   20  ->  ih
+   3:    9  ->  n
+   4:    7  ->  aa
+   5:    7  ->  ah
+   6:    5  ->  d
+   7:    5  ->  dh
+   8:    5  ->  eh
+   9:    5  ->  k
+  10:    5  ->  r
+  11:    5  ->  t
+  12:    4  ->  aw
+  13:    4  ->  f
+  14:    4  ->  l
+  15:    3  ->  er
+  16:    3  ->  hh
+  17:    3  ->  s
+  18:    3  ->  w
+  19:    3  ->  y
+  20:    2  ->  ay
+  21:    2  ->  dx
+  22:    2  ->  iy
+  23:    2  ->  ow
+  24:    2  ->  uw
+  25:    1  ->  ae
+  26:    1  ->  ey
+  27:    1  ->  m
+  28:    1  ->  ng
+  29:    1  ->  p
+  30:    1  ->  th
+  31:    1  ->  v
+  32:    1  ->  z
+     -------
+       161
+
+
+
+DELETIONS                        Total                 (35)
+                                 With >=  1 occurances (35)
+
+   1:   70  ->  sil
+   2:   30  ->  ih
+   3:   26  ->  r
+   4:   23  ->  ah
+   5:   20  ->  n
+   6:   14  ->  l
+   7:   14  ->  t
+   8:   13  ->  eh
+   9:   12  ->  dh
+  10:   12  ->  dx
+  11:   12  ->  v
+  12:   11  ->  d
+  13:   11  ->  y
+  14:    8  ->  iy
+  15:    7  ->  aa
+  16:    7  ->  hh
+  17:    7  ->  k
+  18:    7  ->  m
+  19:    6  ->  f
+  20:    5  ->  er
+  21:    5  ->  ey
+  22:    5  ->  ow
+  23:    4  ->  p
+  24:    4  ->  s
+  25:    3  ->  ae
+  26:    3  ->  g
+  27:    3  ->  w
+  28:    3  ->  z
+  29:    2  ->  aw
+  30:    2  ->  ay
+  31:    2  ->  b
+  32:    2  ->  ng
+  33:    2  ->  th
+  34:    2  ->  uw
+  35:    1  ->  uh
+     -------
+       358
+
+
+
+SUBSTITUTIONS                    Total                 (39)
+                                 With >=  1 occurances (39)
+
+   1:  101  ->  ih
+   2:   76  ->  ah
+   3:   38  ->  eh
+   4:   34  ->  z
+   5:   33  ->  uw
+   6:   32  ->  d
+   7:   31  ->  er
+   8:   29  ->  v
+   9:   26  ->  ae
+  10:   25  ->  r
+  11:   23  ->  m
+  12:   23  ->  n
+  13:   22  ->  ow
+  14:   19  ->  aa
+  15:   18  ->  dh
+  16:   18  ->  g
+  17:   18  ->  l
+  18:   17  ->  ay
+  19:   17  ->  s
+  20:   15  ->  ey
+  21:   15  ->  iy
+  22:   15  ->  sil
+  23:   15  ->  th
+  24:   14  ->  ng
+  25:   14  ->  t
+  26:   12  ->  uh
+  27:   11  ->  aw
+  28:   10  ->  p
+  29:    9  ->  b
+  30:    8  ->  dx
+  31:    8  ->  f
+  32:    8  ->  sh
+  33:    6  ->  ch
+  34:    6  ->  w
+  35:    5  ->  hh
+  36:    5  ->  k
+  37:    5  ->  y
+  38:    4  ->  jh
+  39:    1  ->  oy
+     -------
+       786
+
+
+* NOTE: The 'Substitution' words are those reference words
+        for which the recognizer supplied an incorrect word.
+
+
+FALSELY RECOGNIZED               Total                 (39)
+                                 With >=  1 occurances (39)
+
+   1:  109  ->  ih
+   2:   87  ->  ah
+   3:   55  ->  eh
+   4:   40  ->  iy
+   5:   39  ->  er
+   6:   36  ->  s
+   7:   35  ->  dh
+   8:   34  ->  n
+   9:   29  ->  t
+  10:   19  ->  aa
+  11:   19  ->  b
+  12:   19  ->  k
+  13:   18  ->  ow
+  14:   18  ->  z
+  15:   17  ->  d
+  16:   17  ->  r
+  17:   16  ->  sil
+  18:   15  ->  ey
+  19:   15  ->  f
+  20:   13  ->  m
+  21:   13  ->  v
+  22:   12  ->  ay
+  23:   12  ->  p
+  24:   11  ->  dx
+  25:   10  ->  aw
+  26:    9  ->  ae
+  27:    9  ->  ch
+  28:    8  ->  l
+  29:    8  ->  uw
+  30:    7  ->  g
+  31:    7  ->  ng
+  32:    7  ->  uh
+  33:    7  ->  w
+  34:    5  ->  sh
+  35:    3  ->  jh
+  36:    3  ->  th
+  37:    2  ->  hh
+  38:    2  ->  oy
+  39:    1  ->  y
+     -------
+       786
+
+
+* NOTE: The 'Falsely Recognized' words are those hypothesis words
+        which the recognizer incorrectly substituted for a reference word.
+

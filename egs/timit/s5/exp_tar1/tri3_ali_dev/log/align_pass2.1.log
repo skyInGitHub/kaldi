@@ -1,0 +1,69 @@
+# gmm-align-compiled --transition-scale=1.0 --acoustic-scale=0.1 --self-loop-scale=0.1 --beam=10 --retry-beam=40 --careful=false "gmm-boost-silence --boost=1.0 1 exp/tri3/final.mdl - |" "ark:gunzip -c exp/tri3_ali_dev/fsts.1.gz|" "ark,s,cs:apply-cmvn  --utt2spk=ark:data/dev/split4/1/utt2spk scp:data/dev/split4/1/cmvn.scp scp:data/dev/split4/1/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/dev/split4/1/utt2spk ark:exp/tri3_ali_dev/trans.1 ark:- ark:- |" "ark:|gzip -c >exp/tri3_ali_dev/ali.1.gz" 
+# Started at Mon Apr 29 14:01:46 AEST 2019
+#
+gmm-align-compiled --transition-scale=1.0 --acoustic-scale=0.1 --self-loop-scale=0.1 --beam=10 --retry-beam=40 --careful=false 'gmm-boost-silence --boost=1.0 1 exp/tri3/final.mdl - |' 'ark:gunzip -c exp/tri3_ali_dev/fsts.1.gz|' 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/dev/split4/1/utt2spk scp:data/dev/split4/1/cmvn.scp scp:data/dev/split4/1/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri3/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/dev/split4/1/utt2spk ark:exp/tri3_ali_dev/trans.1 ark:- ark:- |' 'ark:|gzip -c >exp/tri3_ali_dev/ali.1.gz' 
+gmm-boost-silence --boost=1.0 1 exp/tri3/final.mdl - 
+LOG (gmm-boost-silence[5.5.294-06484]:main():gmm-boost-silence.cc:93) Boosted weights for 3 pdfs, by factor of 1
+LOG (gmm-boost-silence[5.5.294-06484]:main():gmm-boost-silence.cc:103) Wrote model to -
+transform-feats exp/tri3/final.mat ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/dev/split4/1/utt2spk scp:data/dev/split4/1/cmvn.scp scp:data/dev/split4/1/feats.scp ark:- 
+transform-feats --utt2spk=ark:data/dev/split4/1/utt2spk ark:exp/tri3_ali_dev/trans.1 ark:- ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FADG0_SI1279
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FADG0_SI1909
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FADG0_SI649
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FADG0_SX109
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FADG0_SX19
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FADG0_SX199
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FADG0_SX289
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FADG0_SX379
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FAKS0_SI1573
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FAKS0_SI2203
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FAKS0_SI943
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FAKS0_SX133
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FAKS0_SX223
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FAKS0_SX313
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FAKS0_SX403
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FAKS0_SX43
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FCMH0_SI1454
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FCMH0_SI2084
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FCMH0_SI824
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FCMH0_SX104
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FCMH0_SX14
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FCMH0_SX194
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FCMH0_SX284
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FCMH0_SX374
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDMS0_SI1218
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDMS0_SI1502
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDMS0_SI1848
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDMS0_SX138
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDMS0_SX228
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDMS0_SX318
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDMS0_SX408
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDMS0_SX48
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDRW0_SI1283
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDRW0_SI1423
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDRW0_SI653
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDRW0_SX113
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDRW0_SX203
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDRW0_SX23
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDRW0_SX293
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FDRW0_SX383
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FEDW0_SI1084
+LOG (apply-cmvn[5.5.294-06484]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 48 utterances, errors on 0
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FEDW0_SI1653
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FEDW0_SI1714
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FEDW0_SX184
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FEDW0_SX274
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FEDW0_SX364
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -88.9877 over 15467 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 48 utterances; 0 had errors.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FEDW0_SX4
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:158) Overall average logdet is -2.21039 over 15467 frames.
+LOG (transform-feats[5.5.294-06484]:main():transform-feats.cc:161) Applied transform to 48 utterances; 0 had errors.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:127) FEDW0_SX94
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:135) Overall log-likelihood per frame is -48.8051 over 15467 frames.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:137) Retried 0 out of 48 utterances.
+LOG (gmm-align-compiled[5.5.294-06484]:main():gmm-align-compiled.cc:139) Done 48, errors on 0
+# Accounting: time=1 threads=1
+# Ended (code 0) at Mon Apr 29 14:01:47 AEST 2019, elapsed time 1 seconds

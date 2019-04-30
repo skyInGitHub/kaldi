@@ -1,0 +1,1 @@
+Copy .../s5/data/test/* files (exclude folder) into .../s5/data/shd1_inout/out_label/ folder.

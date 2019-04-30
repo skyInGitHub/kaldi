@@ -1,0 +1,432 @@
+steps/nnet/make_fmllr_feats.sh --nj 3 --cmd utils/run.pl --transform-dir exp/tri3/decode_test data-fmllr-tri3/test data/test exp/tri3 data-fmllr-tri3/test/log data-fmllr-tri3/test/data
+steps/nnet/make_fmllr_feats.sh: feature type is lda_fmllr
+utils/copy_data_dir.sh: copied data from data/test to data-fmllr-tri3/test
+utils/validate_data_dir.sh: Successfully validated data-directory data-fmllr-tri3/test
+steps/nnet/make_fmllr_feats.sh: Done!, type lda_fmllr, data/test --> data-fmllr-tri3/test, using : raw-trans None, gmm exp/tri3, trans exp/tri3/decode_test
+steps/nnet/make_fmllr_feats.sh --nj 3 --cmd utils/run.pl --transform-dir exp/tri3/decode_dev data-fmllr-tri3/dev data/dev exp/tri3 data-fmllr-tri3/dev/log data-fmllr-tri3/dev/data
+steps/nnet/make_fmllr_feats.sh: feature type is lda_fmllr
+utils/copy_data_dir.sh: copied data from data/dev to data-fmllr-tri3/dev
+utils/validate_data_dir.sh: Successfully validated data-directory data-fmllr-tri3/dev
+steps/nnet/make_fmllr_feats.sh: Done!, type lda_fmllr, data/dev --> data-fmllr-tri3/dev, using : raw-trans None, gmm exp/tri3, trans exp/tri3/decode_dev
+steps/nnet/make_fmllr_feats.sh --nj 3 --cmd utils/run.pl --transform-dir exp/tri3_ali data-fmllr-tri3/train data/train exp/tri3 data-fmllr-tri3/train/log data-fmllr-tri3/train/data
+steps/nnet/make_fmllr_feats.sh: feature type is lda_fmllr
+utils/copy_data_dir.sh: copied data from data/train to data-fmllr-tri3/train
+utils/validate_data_dir.sh: Successfully validated data-directory data-fmllr-tri3/train
+steps/nnet/make_fmllr_feats.sh: Done!, type lda_fmllr, data/train --> data-fmllr-tri3/train, using : raw-trans None, gmm exp/tri3, trans exp/tri3_ali
+Speakers, src=154, trn=139, cv=15 /tmp/sky_cU7el/speakers_cv
+utils/data/subset_data_dir.sh: reducing #utt from 1232 to 1112
+utils/data/subset_data_dir.sh: reducing #utt from 1232 to 120
+# steps/nnet/pretrain_dbn.sh --hid-dim 1024 --rbm-iter 20 data-fmllr-tri3/train exp/dnn4_pretrain-dbn 
+# Started at Mon Apr 29 15:41:35 AEST 2019
+#
+steps/nnet/pretrain_dbn.sh --hid-dim 1024 --rbm-iter 20 data-fmllr-tri3/train exp/dnn4_pretrain-dbn
+# INFO
+steps/nnet/pretrain_dbn.sh : Pre-training Deep Belief Network as a stack of RBMs
+	 dir       : exp/dnn4_pretrain-dbn 
+	 Train-set : data-fmllr-tri3/train '1232'
+
+LOG ([5.5.294-06484]:main():cuda-gpu-available.cc:60) 
+
+### IS CUDA GPU AVAILABLE? 'nsclab-gpu' ###
+WARNING ([5.5.294-06484]:SelectGpuId():cu-device.cc:221) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:349) Selecting from 2 GPUs
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(0): TITAN Xp	free:12023M, used:173M, total:12196M, free/total:0.985815
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(1): TITAN Xp	free:11887M, used:305M, total:12192M, free/total:0.974986
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:411) Trying to select device: 0 (automatically), mem_ratio: 0.985815
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:430) Success selecting device 0 free mem ratio: 0.985815
+LOG ([5.5.294-06484]:FinalizeActiveGpu():cu-device.cc:284) The active GPU is [0]: TITAN Xp	free:11957M, used:239M, total:12196M, free/total:0.980403 version 6.1
+### HURRAY, WE GOT A CUDA GPU FOR COMPUTATION!!! ##
+
+### Testing CUDA setup with a small computation (setup = cuda-toolkit + gpu-driver + kaldi):
+### Test OK!
+
+# PREPARING FEATURES
+copy-feats --compress=true scp:data-fmllr-tri3/train/feats.scp ark,scp:/tmp/kaldi.coJq/train.ark,exp/dnn4_pretrain-dbn/train_sorted.scp 
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 1232 feature matrices.
+# 'apply-cmvn' not used,
+feat-to-dim 'ark:copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- |' - 
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+WARNING (feat-to-dim[5.5.294-06484]:Close():kaldi-io.cc:515) Pipe copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- | had nonzero return status 36096
+# feature dim : 40 (input of 'feature_transform')
++ default 'feature_transform_proto' with splice +/-5 frames
+nnet-initialize --binary=false exp/dnn4_pretrain-dbn/splice5.proto exp/dnn4_pretrain-dbn/tr_splice5.nnet 
+VLOG[1] (nnet-initialize[5.5.294-06484]:Init():nnet-nnet.cc:314) <Splice> <InputDim> 40 <OutputDim> 440 <BuildVector> -5:5 </BuildVector>
+LOG (nnet-initialize[5.5.294-06484]:main():nnet-initialize.cc:63) Written initialized model to exp/dnn4_pretrain-dbn/tr_splice5.nnet
+# compute normalization stats from 10k sentences
+compute-cmvn-stats ark:- exp/dnn4_pretrain-dbn/cmvn-g.stats 
+nnet-forward --print-args=true --use-gpu=yes exp/dnn4_pretrain-dbn/tr_splice5.nnet 'ark:copy-feats scp:exp/dnn4_pretrain-dbn/train.scp.10k ark:- |' ark:- 
+WARNING (nnet-forward[5.5.294-06484]:SelectGpuId():cu-device.cc:221) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:349) Selecting from 2 GPUs
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(0): TITAN Xp	free:12023M, used:173M, total:12196M, free/total:0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(1): TITAN Xp	free:11887M, used:305M, total:12192M, free/total:0.974986
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:411) Trying to select device: 0 (automatically), mem_ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:430) Success selecting device 0 free mem ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:FinalizeActiveGpu():cu-device.cc:284) The active GPU is [0]: TITAN Xp	free:11957M, used:239M, total:12196M, free/total:0.980403 version 6.1
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 1232 feature matrices.
+LOG (nnet-forward[5.5.294-06484]:main():nnet-forward.cc:192) Done 1232 files in 0.0447673min, (fps 141745)
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to exp/dnn4_pretrain-dbn/cmvn-g.stats
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 1232 utterances; 0 had errors.
+# + normalization of NN-input at 'exp/dnn4_pretrain-dbn/tr_splice5_cmvn-g.nnet'
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/tr_splice5.nnet
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating cmvn-to-nnet exp/dnn4_pretrain-dbn/cmvn-g.stats -|
+cmvn-to-nnet exp/dnn4_pretrain-dbn/cmvn-g.stats - 
+LOG (cmvn-to-nnet[5.5.294-06484]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: -
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to exp/dnn4_pretrain-dbn/tr_splice5_cmvn-g.nnet
+
+### Showing the final 'feature_transform':
+nnet-info exp/dnn4_pretrain-dbn/tr_splice5_cmvn-g.nnet 
+num-components 3
+input-dim 40
+output-dim 440
+number-of-parameters 0.00088 millions
+component 1 : <Splice>, input-dim 40, output-dim 440, 
+  frame_offsets [ -5 -4 -3 -2 -1 0 1 2 3 4 5 ]
+component 2 : <AddShift>, input-dim 440, output-dim 440, 
+  shift_data ( min -0.186084, max 0.10599, mean -0.00337009, stddev 0.0385307, skewness -1.63825, kurtosis 9.52582 ) , lr-coef 0
+component 3 : <Rescale>, input-dim 440, output-dim 440, 
+  scale_data ( min 0.31434, max 0.981109, mean 0.77095, stddev 0.158636, skewness -0.786001, kurtosis -0.106175 ) , lr-coef 0
+LOG (nnet-info[5.5.294-06484]:main():nnet-info.cc:57) Printed info about exp/dnn4_pretrain-dbn/tr_splice5_cmvn-g.nnet
+###
+
+# PRE-TRAINING RBM LAYER 1
+# initializing 'exp/dnn4_pretrain-dbn/1.rbm.init'
+# pretraining 'exp/dnn4_pretrain-dbn/1.rbm' (input gauss, lrate 0.01, iters 40)
+# converting RBM to exp/dnn4_pretrain-dbn/1.dbn
+rbm-convert-to-nnet exp/dnn4_pretrain-dbn/1.rbm exp/dnn4_pretrain-dbn/1.dbn 
+LOG (rbm-convert-to-nnet[5.5.294-06484]:main():rbm-convert-to-nnet.cc:69) Written model to exp/dnn4_pretrain-dbn/1.dbn
+
+# PRE-TRAINING RBM LAYER 2
+# computing cmvn stats 'exp/dnn4_pretrain-dbn/2.cmvn' for RBM initialization
+WARNING (nnet-forward[5.5.294-06484]:SelectGpuId():cu-device.cc:221) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:349) Selecting from 2 GPUs
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(0): TITAN Xp	free:12023M, used:173M, total:12196M, free/total:0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(1): TITAN Xp	free:11888M, used:304M, total:12192M, free/total:0.975047
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:411) Trying to select device: 0 (automatically), mem_ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:430) Success selecting device 0 free mem ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:FinalizeActiveGpu():cu-device.cc:284) The active GPU is [0]: TITAN Xp	free:11957M, used:239M, total:12196M, free/total:0.980403 version 6.1
+nnet-concat exp/dnn4_pretrain-dbn/final.feature_transform exp/dnn4_pretrain-dbn/1.dbn - 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/final.feature_transform
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating exp/dnn4_pretrain-dbn/1.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to -
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 1232 feature matrices.
+LOG (nnet-forward[5.5.294-06484]:main():nnet-forward.cc:192) Done 1232 files in 0.10162min, (fps 62444)
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to standard output
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 1232 utterances; 0 had errors.
+LOG (cmvn-to-nnet[5.5.294-06484]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: exp/dnn4_pretrain-dbn/2.cmvn
+initializing 'exp/dnn4_pretrain-dbn/2.rbm.init'
+pretraining 'exp/dnn4_pretrain-dbn/2.rbm' (lrate 0.4, iters 20)
+# appending RBM to exp/dnn4_pretrain-dbn/2.dbn
+nnet-concat exp/dnn4_pretrain-dbn/1.dbn 'rbm-convert-to-nnet exp/dnn4_pretrain-dbn/2.rbm - |' exp/dnn4_pretrain-dbn/2.dbn 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/1.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating rbm-convert-to-nnet exp/dnn4_pretrain-dbn/2.rbm - |
+rbm-convert-to-nnet exp/dnn4_pretrain-dbn/2.rbm - 
+LOG (rbm-convert-to-nnet[5.5.294-06484]:main():rbm-convert-to-nnet.cc:69) Written model to -
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to exp/dnn4_pretrain-dbn/2.dbn
+
+# PRE-TRAINING RBM LAYER 3
+# computing cmvn stats 'exp/dnn4_pretrain-dbn/3.cmvn' for RBM initialization
+WARNING (nnet-forward[5.5.294-06484]:SelectGpuId():cu-device.cc:221) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:349) Selecting from 2 GPUs
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(0): TITAN Xp	free:12023M, used:173M, total:12196M, free/total:0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(1): TITAN Xp	free:11888M, used:304M, total:12192M, free/total:0.975016
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:411) Trying to select device: 0 (automatically), mem_ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:430) Success selecting device 0 free mem ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:FinalizeActiveGpu():cu-device.cc:284) The active GPU is [0]: TITAN Xp	free:11957M, used:239M, total:12196M, free/total:0.980403 version 6.1
+nnet-concat exp/dnn4_pretrain-dbn/final.feature_transform exp/dnn4_pretrain-dbn/2.dbn - 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/final.feature_transform
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating exp/dnn4_pretrain-dbn/2.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to -
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 1232 feature matrices.
+LOG (nnet-forward[5.5.294-06484]:main():nnet-forward.cc:192) Done 1232 files in 0.104188min, (fps 60905.1)
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to standard output
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 1232 utterances; 0 had errors.
+LOG (cmvn-to-nnet[5.5.294-06484]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: exp/dnn4_pretrain-dbn/3.cmvn
+initializing 'exp/dnn4_pretrain-dbn/3.rbm.init'
+pretraining 'exp/dnn4_pretrain-dbn/3.rbm' (lrate 0.4, iters 20)
+# appending RBM to exp/dnn4_pretrain-dbn/3.dbn
+nnet-concat exp/dnn4_pretrain-dbn/2.dbn 'rbm-convert-to-nnet exp/dnn4_pretrain-dbn/3.rbm - |' exp/dnn4_pretrain-dbn/3.dbn 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/2.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating rbm-convert-to-nnet exp/dnn4_pretrain-dbn/3.rbm - |
+rbm-convert-to-nnet exp/dnn4_pretrain-dbn/3.rbm - 
+LOG (rbm-convert-to-nnet[5.5.294-06484]:main():rbm-convert-to-nnet.cc:69) Written model to -
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to exp/dnn4_pretrain-dbn/3.dbn
+
+# PRE-TRAINING RBM LAYER 4
+# computing cmvn stats 'exp/dnn4_pretrain-dbn/4.cmvn' for RBM initialization
+WARNING (nnet-forward[5.5.294-06484]:SelectGpuId():cu-device.cc:221) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:349) Selecting from 2 GPUs
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(0): TITAN Xp	free:12023M, used:173M, total:12196M, free/total:0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(1): TITAN Xp	free:11888M, used:304M, total:12192M, free/total:0.975001
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:411) Trying to select device: 0 (automatically), mem_ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:430) Success selecting device 0 free mem ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:FinalizeActiveGpu():cu-device.cc:284) The active GPU is [0]: TITAN Xp	free:11957M, used:239M, total:12196M, free/total:0.980403 version 6.1
+nnet-concat exp/dnn4_pretrain-dbn/final.feature_transform exp/dnn4_pretrain-dbn/3.dbn - 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/final.feature_transform
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating exp/dnn4_pretrain-dbn/3.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to -
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 1232 feature matrices.
+LOG (nnet-forward[5.5.294-06484]:main():nnet-forward.cc:192) Done 1232 files in 0.10698min, (fps 59315.4)
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to standard output
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 1232 utterances; 0 had errors.
+LOG (cmvn-to-nnet[5.5.294-06484]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: exp/dnn4_pretrain-dbn/4.cmvn
+initializing 'exp/dnn4_pretrain-dbn/4.rbm.init'
+pretraining 'exp/dnn4_pretrain-dbn/4.rbm' (lrate 0.4, iters 20)
+# appending RBM to exp/dnn4_pretrain-dbn/4.dbn
+nnet-concat exp/dnn4_pretrain-dbn/3.dbn 'rbm-convert-to-nnet exp/dnn4_pretrain-dbn/4.rbm - |' exp/dnn4_pretrain-dbn/4.dbn 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/3.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating rbm-convert-to-nnet exp/dnn4_pretrain-dbn/4.rbm - |
+rbm-convert-to-nnet exp/dnn4_pretrain-dbn/4.rbm - 
+LOG (rbm-convert-to-nnet[5.5.294-06484]:main():rbm-convert-to-nnet.cc:69) Written model to -
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to exp/dnn4_pretrain-dbn/4.dbn
+
+# PRE-TRAINING RBM LAYER 5
+# computing cmvn stats 'exp/dnn4_pretrain-dbn/5.cmvn' for RBM initialization
+WARNING (nnet-forward[5.5.294-06484]:SelectGpuId():cu-device.cc:221) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:349) Selecting from 2 GPUs
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(0): TITAN Xp	free:12023M, used:173M, total:12196M, free/total:0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(1): TITAN Xp	free:11887M, used:305M, total:12192M, free/total:0.974986
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:411) Trying to select device: 0 (automatically), mem_ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:430) Success selecting device 0 free mem ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:FinalizeActiveGpu():cu-device.cc:284) The active GPU is [0]: TITAN Xp	free:11957M, used:239M, total:12196M, free/total:0.980403 version 6.1
+nnet-concat exp/dnn4_pretrain-dbn/final.feature_transform exp/dnn4_pretrain-dbn/4.dbn - 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/final.feature_transform
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating exp/dnn4_pretrain-dbn/4.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to -
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 1232 feature matrices.
+LOG (nnet-forward[5.5.294-06484]:main():nnet-forward.cc:192) Done 1232 files in 0.107283min, (fps 59147.7)
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to standard output
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 1232 utterances; 0 had errors.
+LOG (cmvn-to-nnet[5.5.294-06484]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: exp/dnn4_pretrain-dbn/5.cmvn
+initializing 'exp/dnn4_pretrain-dbn/5.rbm.init'
+pretraining 'exp/dnn4_pretrain-dbn/5.rbm' (lrate 0.4, iters 20)
+# appending RBM to exp/dnn4_pretrain-dbn/5.dbn
+nnet-concat exp/dnn4_pretrain-dbn/4.dbn 'rbm-convert-to-nnet exp/dnn4_pretrain-dbn/5.rbm - |' exp/dnn4_pretrain-dbn/5.dbn 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/4.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating rbm-convert-to-nnet exp/dnn4_pretrain-dbn/5.rbm - |
+rbm-convert-to-nnet exp/dnn4_pretrain-dbn/5.rbm - 
+LOG (rbm-convert-to-nnet[5.5.294-06484]:main():rbm-convert-to-nnet.cc:69) Written model to -
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to exp/dnn4_pretrain-dbn/5.dbn
+
+# PRE-TRAINING RBM LAYER 6
+# computing cmvn stats 'exp/dnn4_pretrain-dbn/6.cmvn' for RBM initialization
+WARNING (nnet-forward[5.5.294-06484]:SelectGpuId():cu-device.cc:221) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:349) Selecting from 2 GPUs
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(0): TITAN Xp	free:12023M, used:173M, total:12196M, free/total:0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(1): TITAN Xp	free:11888M, used:304M, total:12192M, free/total:0.975062
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:411) Trying to select device: 0 (automatically), mem_ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:430) Success selecting device 0 free mem ratio: 0.985815
+LOG (nnet-forward[5.5.294-06484]:FinalizeActiveGpu():cu-device.cc:284) The active GPU is [0]: TITAN Xp	free:11957M, used:239M, total:12196M, free/total:0.980403 version 6.1
+nnet-concat exp/dnn4_pretrain-dbn/final.feature_transform exp/dnn4_pretrain-dbn/5.dbn - 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/final.feature_transform
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating exp/dnn4_pretrain-dbn/5.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to -
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 1232 feature matrices.
+LOG (nnet-forward[5.5.294-06484]:main():nnet-forward.cc:192) Done 1232 files in 0.110027min, (fps 57672.6)
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to standard output
+LOG (compute-cmvn-stats[5.5.294-06484]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 1232 utterances; 0 had errors.
+LOG (cmvn-to-nnet[5.5.294-06484]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: exp/dnn4_pretrain-dbn/6.cmvn
+initializing 'exp/dnn4_pretrain-dbn/6.rbm.init'
+pretraining 'exp/dnn4_pretrain-dbn/6.rbm' (lrate 0.4, iters 20)
+# appending RBM to exp/dnn4_pretrain-dbn/6.dbn
+nnet-concat exp/dnn4_pretrain-dbn/5.dbn 'rbm-convert-to-nnet exp/dnn4_pretrain-dbn/6.rbm - |' exp/dnn4_pretrain-dbn/6.dbn 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/5.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating rbm-convert-to-nnet exp/dnn4_pretrain-dbn/6.rbm - |
+rbm-convert-to-nnet exp/dnn4_pretrain-dbn/6.rbm - 
+LOG (rbm-convert-to-nnet[5.5.294-06484]:main():rbm-convert-to-nnet.cc:69) Written model to -
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to exp/dnn4_pretrain-dbn/6.dbn
+
+# REPORT
+# RBM pre-training progress (line per-layer)
+exp/dnn4_pretrain-dbn/log/rbm.1.log:progress: [61.5823 55.365 54.2396 53.6229 53.2448 53.0052 52.8594 52.756 ]
+exp/dnn4_pretrain-dbn/log/rbm.2.log:progress: [6.8365 5.62663 5.53377 5.47306 ]
+exp/dnn4_pretrain-dbn/log/rbm.3.log:progress: [4.85153 3.97192 3.90589 3.87224 ]
+exp/dnn4_pretrain-dbn/log/rbm.4.log:progress: [4.02651 3.24766 3.17773 3.15108 ]
+exp/dnn4_pretrain-dbn/log/rbm.5.log:progress: [3.28032 2.65189 2.6101 2.59206 ]
+exp/dnn4_pretrain-dbn/log/rbm.6.log:progress: [2.81558 2.28569 2.24158 2.22693 ]
+
+Pre-training finished.
+# Removing features tmpdir /tmp/kaldi.coJq @ nsclab-gpu
+train.ark
+# Accounting: time=533 threads=1
+# Ended (code 0) at Mon Apr 29 15:50:28 AEST 2019, elapsed time 533 seconds
+# steps/nnet/train.sh --feature-transform exp/dnn4_pretrain-dbn/final.feature_transform --dbn exp/dnn4_pretrain-dbn/6.dbn --hid-layers 0 --learn-rate 0.008 data-fmllr-tri3/train_tr90 data-fmllr-tri3/train_cv10 data/lang exp/tri3_ali exp/tri3_ali exp/dnn4_pretrain-dbn_dnn 
+# Started at Mon Apr 29 15:50:28 AEST 2019
+#
+steps/nnet/train.sh --feature-transform exp/dnn4_pretrain-dbn/final.feature_transform --dbn exp/dnn4_pretrain-dbn/6.dbn --hid-layers 0 --learn-rate 0.008 data-fmllr-tri3/train_tr90 data-fmllr-tri3/train_cv10 data/lang exp/tri3_ali exp/tri3_ali exp/dnn4_pretrain-dbn_dnn
+
+# INFO
+steps/nnet/train.sh : Training Neural Network
+	 dir       : exp/dnn4_pretrain-dbn_dnn 
+	 Train-set : data-fmllr-tri3/train_tr90 1112, exp/tri3_ali 
+	 CV-set    : data-fmllr-tri3/train_cv10 120 exp/tri3_ali 
+
+LOG ([5.5.294-06484]:main():cuda-gpu-available.cc:60) 
+
+### IS CUDA GPU AVAILABLE? 'nsclab-gpu' ###
+WARNING ([5.5.294-06484]:SelectGpuId():cu-device.cc:221) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:349) Selecting from 2 GPUs
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(0): TITAN Xp	free:12023M, used:173M, total:12196M, free/total:0.985815
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:364) cudaSetDevice(1): TITAN Xp	free:11888M, used:304M, total:12192M, free/total:0.975032
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:411) Trying to select device: 0 (automatically), mem_ratio: 0.985815
+LOG ([5.5.294-06484]:SelectGpuIdAuto():cu-device.cc:430) Success selecting device 0 free mem ratio: 0.985815
+LOG ([5.5.294-06484]:FinalizeActiveGpu():cu-device.cc:284) The active GPU is [0]: TITAN Xp	free:11957M, used:239M, total:12196M, free/total:0.980403 version 6.1
+### HURRAY, WE GOT A CUDA GPU FOR COMPUTATION!!! ##
+
+### Testing CUDA setup with a small computation (setup = cuda-toolkit + gpu-driver + kaldi):
+### Test OK!
+
+# PREPARING ALIGNMENTS
+Using PDF targets from dirs 'exp/tri3_ali' 'exp/tri3_ali'
+hmm-info exp/tri3_ali/final.mdl 
+copy-transition-model --binary=false exp/tri3_ali/final.mdl exp/dnn4_pretrain-dbn_dnn/final.mdl 
+LOG (copy-transition-model[5.5.294-06484]:main():copy-transition-model.cc:62) Copied transition model.
+
+# PREPARING FEATURES
+# re-saving features to local disk,
+copy-feats --compress=true scp:data-fmllr-tri3/train_tr90/feats.scp ark,scp:/tmp/kaldi.bCbN/train.ark,exp/dnn4_pretrain-dbn_dnn/train_sorted.scp 
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 1112 feature matrices.
+copy-feats --compress=true scp:data-fmllr-tri3/train_cv10/feats.scp ark,scp:/tmp/kaldi.bCbN/cv.ark,exp/dnn4_pretrain-dbn_dnn/cv.scp 
+LOG (copy-feats[5.5.294-06484]:main():copy-feats.cc:143) Copied 120 feature matrices.
+# importing feature settings from dir 'exp/dnn4_pretrain-dbn'
+# cmvn_opts='' delta_opts='' ivector_dim=''
+# 'apply-cmvn' is not used,
+feat-to-dim 'ark:copy-feats scp:exp/dnn4_pretrain-dbn_dnn/train.scp.10k ark:- |' - 
+copy-feats scp:exp/dnn4_pretrain-dbn_dnn/train.scp.10k ark:- 
+WARNING (feat-to-dim[5.5.294-06484]:Close():kaldi-io.cc:515) Pipe copy-feats scp:exp/dnn4_pretrain-dbn_dnn/train.scp.10k ark:- | had nonzero return status 36096
+# feature dim : 40 (input of 'feature_transform')
+# importing 'feature_transform' from 'exp/dnn4_pretrain-dbn/final.feature_transform'
+
+### Showing the final 'feature_transform':
+nnet-info exp/dnn4_pretrain-dbn_dnn/imported_final.feature_transform 
+num-components 3
+input-dim 40
+output-dim 440
+number-of-parameters 0.00088 millions
+component 1 : <Splice>, input-dim 40, output-dim 440, 
+  frame_offsets [ -5 -4 -3 -2 -1 0 1 2 3 4 5 ]
+component 2 : <AddShift>, input-dim 440, output-dim 440, 
+  shift_data ( min -0.186084, max 0.10599, mean -0.00337009, stddev 0.0385307, skewness -1.63825, kurtosis 9.52582 ) , lr-coef 0
+component 3 : <Rescale>, input-dim 440, output-dim 440, 
+  scale_data ( min 0.31434, max 0.981109, mean 0.77095, stddev 0.158636, skewness -0.786001, kurtosis -0.106175 ) , lr-coef 0
+LOG (nnet-info[5.5.294-06484]:main():nnet-info.cc:57) Printed info about exp/dnn4_pretrain-dbn_dnn/imported_final.feature_transform
+###
+
+# NN-INITIALIZATION
+# getting input/output dims :
+feat-to-dim 'ark:copy-feats scp:exp/dnn4_pretrain-dbn_dnn/train.scp.10k ark:- | nnet-forward "nnet-concat exp/dnn4_pretrain-dbn_dnn/final.feature_transform '\''exp/dnn4_pretrain-dbn/6.dbn'\'' -|" ark:- ark:- |' - 
+copy-feats scp:exp/dnn4_pretrain-dbn_dnn/train.scp.10k ark:- 
+nnet-forward "nnet-concat exp/dnn4_pretrain-dbn_dnn/final.feature_transform 'exp/dnn4_pretrain-dbn/6.dbn' -|" ark:- ark:- 
+LOG (nnet-forward[5.5.294-06484]:SelectGpuId():cu-device.cc:146) Manually selected to compute on CPU.
+nnet-concat exp/dnn4_pretrain-dbn_dnn/final.feature_transform exp/dnn4_pretrain-dbn/6.dbn - 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn_dnn/final.feature_transform
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating exp/dnn4_pretrain-dbn/6.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to -
+WARNING (feat-to-dim[5.5.294-06484]:Close():kaldi-io.cc:515) Pipe copy-feats scp:exp/dnn4_pretrain-dbn_dnn/train.scp.10k ark:- | nnet-forward "nnet-concat exp/dnn4_pretrain-dbn_dnn/final.feature_transform 'exp/dnn4_pretrain-dbn/6.dbn' -|" ark:- ark:- | had nonzero return status 36096
+# genrating network prototype exp/dnn4_pretrain-dbn_dnn/nnet.proto
+# initializing the NN 'exp/dnn4_pretrain-dbn_dnn/nnet.proto' -> 'exp/dnn4_pretrain-dbn_dnn/nnet.init'
+nnet-initialize --seed=777 exp/dnn4_pretrain-dbn_dnn/nnet.proto exp/dnn4_pretrain-dbn_dnn/nnet.init 
+VLOG[1] (nnet-initialize[5.5.294-06484]:Init():nnet-nnet.cc:314) <AffineTransform> <InputDim> 1024 <OutputDim> 1520 <BiasMean> 0.000000 <BiasRange> 0.000000 <ParamStddev> 0.098135
+VLOG[1] (nnet-initialize[5.5.294-06484]:Init():nnet-nnet.cc:314) <Softmax> <InputDim> 1520 <OutputDim> 1520
+VLOG[1] (nnet-initialize[5.5.294-06484]:Init():nnet-nnet.cc:314) </NnetProto>
+LOG (nnet-initialize[5.5.294-06484]:main():nnet-initialize.cc:63) Written initialized model to exp/dnn4_pretrain-dbn_dnn/nnet.init
+nnet-concat exp/dnn4_pretrain-dbn/6.dbn exp/dnn4_pretrain-dbn_dnn/nnet.init exp/dnn4_pretrain-dbn_dnn/nnet_dbn_dnn.init 
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:53) Reading exp/dnn4_pretrain-dbn/6.dbn
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:65) Concatenating exp/dnn4_pretrain-dbn_dnn/nnet.init
+LOG (nnet-concat[5.5.294-06484]:main():nnet-concat.cc:82) Written model to exp/dnn4_pretrain-dbn_dnn/nnet_dbn_dnn.init
+
+# RUNNING THE NN-TRAINING SCHEDULER
+steps/nnet/train_scheduler.sh --feature-transform exp/dnn4_pretrain-dbn_dnn/final.feature_transform --learn-rate 0.008 exp/dnn4_pretrain-dbn_dnn/nnet_dbn_dnn.init ark:copy-feats scp:exp/dnn4_pretrain-dbn_dnn/train.scp ark:- | ark:copy-feats scp:exp/dnn4_pretrain-dbn_dnn/cv.scp ark:- | ark:ali-to-pdf exp/tri3_ali/final.mdl "ark:gunzip -c exp/tri3_ali/ali.*.gz |" ark:- | ali-to-post ark:- ark:- | ark:ali-to-pdf exp/tri3_ali/final.mdl "ark:gunzip -c exp/tri3_ali/ali.*.gz |" ark:- | ali-to-post ark:- ark:- | exp/dnn4_pretrain-dbn_dnn
+CROSSVAL PRERUN AVG.LOSS 7.4956 (Xent),
+ITERATION 01: TRAIN AVG.LOSS 2.6560, (lrate0.008), CROSSVAL AVG.LOSS 2.2160, nnet accepted (nnet_dbn_dnn_iter01_learnrate0.008_tr2.6560_cv2.2160)
+ITERATION 02: TRAIN AVG.LOSS 1.5671, (lrate0.008), CROSSVAL AVG.LOSS 2.0311, nnet accepted (nnet_dbn_dnn_iter02_learnrate0.008_tr1.5671_cv2.0311)
+ITERATION 03: TRAIN AVG.LOSS 1.2793, (lrate0.008), CROSSVAL AVG.LOSS 1.9888, nnet accepted (nnet_dbn_dnn_iter03_learnrate0.008_tr1.2793_cv1.9888)
+ITERATION 04: TRAIN AVG.LOSS 1.0839, (lrate0.008), CROSSVAL AVG.LOSS 1.9870, nnet accepted (nnet_dbn_dnn_iter04_learnrate0.008_tr1.0839_cv1.9870)
+ITERATION 05: TRAIN AVG.LOSS 0.8831, (lrate0.004), CROSSVAL AVG.LOSS 1.8771, nnet accepted (nnet_dbn_dnn_iter05_learnrate0.004_tr0.8831_cv1.8771)
+ITERATION 06: TRAIN AVG.LOSS 0.7863, (lrate0.002), CROSSVAL AVG.LOSS 1.8036, nnet accepted (nnet_dbn_dnn_iter06_learnrate0.002_tr0.7863_cv1.8036)
+ITERATION 07: TRAIN AVG.LOSS 0.7417, (lrate0.001), CROSSVAL AVG.LOSS 1.7581, nnet accepted (nnet_dbn_dnn_iter07_learnrate0.001_tr0.7417_cv1.7581)
+ITERATION 08: TRAIN AVG.LOSS 0.7203, (lrate0.0005), CROSSVAL AVG.LOSS 1.7298, nnet accepted (nnet_dbn_dnn_iter08_learnrate0.0005_tr0.7203_cv1.7298)
+ITERATION 09: TRAIN AVG.LOSS 0.7089, (lrate0.00025), CROSSVAL AVG.LOSS 1.7136, nnet accepted (nnet_dbn_dnn_iter09_learnrate0.00025_tr0.7089_cv1.7136)
+ITERATION 10: TRAIN AVG.LOSS 0.7021, (lrate0.000125), CROSSVAL AVG.LOSS 1.7062, nnet accepted (nnet_dbn_dnn_iter10_learnrate0.000125_tr0.7021_cv1.7062)
+ITERATION 11: TRAIN AVG.LOSS 0.6979, (lrate6.25e-05), CROSSVAL AVG.LOSS 1.7033, nnet accepted (nnet_dbn_dnn_iter11_learnrate6.25e-05_tr0.6979_cv1.7033)
+ITERATION 12: TRAIN AVG.LOSS 0.6954, (lrate3.125e-05), CROSSVAL AVG.LOSS 1.7021, nnet accepted (nnet_dbn_dnn_iter12_learnrate3.125e-05_tr0.6954_cv1.7021)
+finished, too small rel. improvement 0.000686906
+steps/nnet/train_scheduler.sh: Succeeded training the Neural Network : 'exp/dnn4_pretrain-dbn_dnn/final.nnet'
+steps/nnet/train.sh: Successfuly finished. 'exp/dnn4_pretrain-dbn_dnn'
+steps/nnet/decode.sh --nj 2 --cmd utils/run.pl --acwt 0.2 exp/tri3/graph data-fmllr-tri3/test exp/dnn4_pretrain-dbn_dnn/decode_test
+# Removing features tmpdir /tmp/kaldi.bCbN @ nsclab-gpu
+cv.ark
+train.ark
+# Accounting: time=106 threads=1
+# Ended (code 0) at Mon Apr 29 15:52:14 AEST 2019, elapsed time 106 seconds
+steps/nnet/decode.sh --nj 2 --cmd utils/run.pl --acwt 0.2 exp/tri3/graph data-fmllr-tri3/dev exp/dnn4_pretrain-dbn_dnn/decode_dev
+steps/nnet/align.sh --nj 2 --cmd utils/run.pl data-fmllr-tri3/train data/lang exp/dnn4_pretrain-dbn_dnn exp/dnn4_pretrain-dbn_dnn_ali
+steps/nnet/align.sh: aligning data 'data-fmllr-tri3/train' using nnet/model 'exp/dnn4_pretrain-dbn_dnn', putting alignments in 'exp/dnn4_pretrain-dbn_dnn_ali'
+steps/nnet/align.sh: done aligning data.
+steps/nnet/make_denlats.sh --nj 2 --cmd utils/run.pl --acwt 0.2 --lattice-beam 10.0 --beam 18.0 data-fmllr-tri3/train data/lang exp/dnn4_pretrain-dbn_dnn exp/dnn4_pretrain-dbn_dnn_denlats
+Making unigram grammar FST in exp/dnn4_pretrain-dbn_dnn_denlats/lang
+Compiling decoding graph in exp/dnn4_pretrain-dbn_dnn_denlats/dengraph
+tree-info exp/dnn4_pretrain-dbn_dnn/tree 
+tree-info exp/dnn4_pretrain-dbn_dnn/tree 
+fsttablecompose exp/dnn4_pretrain-dbn_dnn_denlats/lang/L_disambig.fst exp/dnn4_pretrain-dbn_dnn_denlats/lang/G.fst 
+fstdeterminizestar --use-log=true 
+fstminimizeencoded 
+fstpushspecial 
+fstisstochastic exp/dnn4_pretrain-dbn_dnn_denlats/lang/tmp/LG.fst 
+-7.11611e-05 -7.11611e-05
+fstcomposecontext --context-size=3 --central-position=1 --read-disambig-syms=exp/dnn4_pretrain-dbn_dnn_denlats/lang/phones/disambig.int --write-disambig-syms=exp/dnn4_pretrain-dbn_dnn_denlats/lang/tmp/disambig_ilabels_3_1.int exp/dnn4_pretrain-dbn_dnn_denlats/lang/tmp/ilabels_3_1.6444 exp/dnn4_pretrain-dbn_dnn_denlats/lang/tmp/LG.fst 
+fstisstochastic exp/dnn4_pretrain-dbn_dnn_denlats/lang/tmp/CLG_3_1.fst 
+0 -7.11922e-05
+make-h-transducer --disambig-syms-out=exp/dnn4_pretrain-dbn_dnn_denlats/dengraph/disambig_tid.int --transition-scale=1.0 exp/dnn4_pretrain-dbn_dnn_denlats/lang/tmp/ilabels_3_1 exp/dnn4_pretrain-dbn_dnn/tree exp/dnn4_pretrain-dbn_dnn/final.mdl 
+fsttablecompose exp/dnn4_pretrain-dbn_dnn_denlats/dengraph/Ha.fst exp/dnn4_pretrain-dbn_dnn_denlats/lang/tmp/CLG_3_1.fst 
+fstrmsymbols exp/dnn4_pretrain-dbn_dnn_denlats/dengraph/disambig_tid.int 
+fstdeterminizestar --use-log=true 
+fstrmepslocal 
+fstminimizeencoded 
+fstisstochastic exp/dnn4_pretrain-dbn_dnn_denlats/dengraph/HCLGa.fst 
+0.000463432 -0.000539467
+add-self-loops --self-loop-scale=0.1 --reorder=true exp/dnn4_pretrain-dbn_dnn/final.mdl exp/dnn4_pretrain-dbn_dnn_denlats/dengraph/HCLGa.fst 
+steps/nnet/make_denlats.sh: generating denlats from data 'data-fmllr-tri3/train', putting lattices in 'exp/dnn4_pretrain-dbn_dnn_denlats'
+steps/nnet/make_denlats.sh: done generating denominator lattices.
+steps/nnet/train_mpe.sh --cmd utils/run.pl --num-iters 6 --acwt 0.2 --do-smbr true data-fmllr-tri3/train data/lang exp/dnn4_pretrain-dbn_dnn exp/dnn4_pretrain-dbn_dnn_ali exp/dnn4_pretrain-dbn_dnn_denlats exp/dnn4_pretrain-dbn_dnn_smbr
+Pass 1 (learnrate 0.00001)
+ TRAINING FINISHED; Time taken = 0.656565 min; processed 9664.77 frames per second.
+ Done 1232 files, 0 with no reference alignments, 0 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.882968 over 380733 frames.
+Pass 2 (learnrate 1e-05)
+ TRAINING FINISHED; Time taken = 0.655621 min; processed 9678.69 frames per second.
+ Done 1232 files, 0 with no reference alignments, 0 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.888312 over 380733 frames.
+Pass 3 (learnrate 1e-05)
+ TRAINING FINISHED; Time taken = 0.660384 min; processed 9608.87 frames per second.
+ Done 1232 files, 0 with no reference alignments, 0 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.892009 over 380733 frames.
+Pass 4 (learnrate 1e-05)
+ TRAINING FINISHED; Time taken = 0.659265 min; processed 9625.19 frames per second.
+ Done 1232 files, 0 with no reference alignments, 0 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.894873 over 380733 frames.
+Pass 5 (learnrate 1e-05)
+ TRAINING FINISHED; Time taken = 0.660382 min; processed 9608.9 frames per second.
+ Done 1232 files, 0 with no reference alignments, 0 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.897199 over 380733 frames.
+Pass 6 (learnrate 1e-05)
+ TRAINING FINISHED; Time taken = 0.661001 min; processed 9599.92 frames per second.
+ Done 1232 files, 0 with no reference alignments, 0 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.899208 over 380733 frames.
+MPE/sMBR training finished
+Re-estimating priors by forwarding 10k utterances from training set.
+steps/nnet/make_priors.sh --cmd utils/run.pl --nj 2 data-fmllr-tri3/train exp/dnn4_pretrain-dbn_dnn_smbr
+Accumulating prior stats by forwarding 'data-fmllr-tri3/train' with 'exp/dnn4_pretrain-dbn_dnn_smbr'
+Succeeded creating prior counts 'exp/dnn4_pretrain-dbn_dnn_smbr/prior_counts' from 'data-fmllr-tri3/train'
+steps/nnet/train_mpe.sh: Done. 'exp/dnn4_pretrain-dbn_dnn_smbr'
+steps/nnet/decode.sh --nj 2 --cmd utils/run.pl --nnet exp/dnn4_pretrain-dbn_dnn_smbr/1.nnet --acwt 0.2 exp/tri3/graph data-fmllr-tri3/test exp/dnn4_pretrain-dbn_dnn_smbr/decode_test_it1
+steps/nnet/decode.sh --nj 2 --cmd utils/run.pl --nnet exp/dnn4_pretrain-dbn_dnn_smbr/1.nnet --acwt 0.2 exp/tri3/graph data-fmllr-tri3/dev exp/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it1
+steps/nnet/decode.sh --nj 2 --cmd utils/run.pl --nnet exp/dnn4_pretrain-dbn_dnn_smbr/6.nnet --acwt 0.2 exp/tri3/graph data-fmllr-tri3/test exp/dnn4_pretrain-dbn_dnn_smbr/decode_test_it6
+steps/nnet/decode.sh --nj 2 --cmd utils/run.pl --nnet exp/dnn4_pretrain-dbn_dnn_smbr/6.nnet --acwt 0.2 exp/tri3/graph data-fmllr-tri3/dev exp/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it6
+Success
+Duration: 18 minutes.

@@ -12,6 +12,8 @@
 # http://repository.cmu.edu/cgi/viewcontent.cgi?article=2768&context=compsci
 #
 
+start="$(date -u +%s)"
+
 . ./cmd.sh
 [ -f path.sh ] && . ./path.sh
 set -e
@@ -27,9 +29,9 @@ numGaussUBM=400
 numLeavesSGMM=7000
 numGaussSGMM=9000
 
-feats_nj=10
-train_nj=30
-decode_nj=5
+feats_nj=3  # @sky: change from 10 to 3 (changed input all TIMIT to 1/3 TIMIT)
+train_nj=10  # @sky: change from 30 to 10 (changed input all TIMIT to 1/3 TIMIT)
+decode_nj=2  # @sky: change from 5 to 2 (changed input all TIMIT to 1/3 TIMIT)
 
 echo ============================================================================
 echo "                Data & Lexicon & Language Preparation                     "
@@ -38,6 +40,7 @@ echo ===========================================================================
 #timit=/export/corpora5/LDC/LDC93S1/timit/TIMIT # @JHU
 #timit=/mnt/matylda2/data/TIMIT/timit # @BUT
 timit=/home/sky/dataset/TIMIT  # @sky
+# timit_sub=1  # @sky
 
 local/timit_data_prep.sh $timit || exit 1
 
@@ -142,6 +145,11 @@ echo ===========================================================================
 steps/align_fmllr.sh --nj "$train_nj" --cmd "$train_cmd" \
  data/train data/lang exp/tri3 exp/tri3_ali
 
+end0="$(date -u +%s)"
+runtime0="$((($end0-$start)/60))"
+
+echo "Duration: $runtime0 minutes. From this point you can run Karel's DNN : local/nnet/run_dnn.sh"
+
 exit 0 # From this point you can run Karel's DNN : local/nnet/run_dnn.sh
 
 steps/train_ubm.sh --cmd "$train_cmd" \
@@ -242,5 +250,10 @@ bash RESULTS test
 echo ============================================================================
 echo "Finished successfully on" `date`
 echo ============================================================================
+
+end="$(date -u +%s)"
+runtime="$((($end-$start)/60))"
+
+echo "Duration: $runtime minutes"
 
 exit 0
